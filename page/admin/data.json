@@ -1,0 +1,64 @@
+[
+  {
+    "title": "苹果公司",
+    "type": "folder",
+    "products": [
+      {
+        "id":1,
+        "title": "iPhone",
+        "type": "item"
+      },
+      {
+        "id":2,
+        "title": "iMac",
+        "type": "item"
+      },
+      {
+        "id":3,
+        "title": "MacBook Pro",
+        "type": "item"
+      }
+    ]
+  },
+  {
+    "title": "联想公司",
+    "type": "folder",
+    "products": [
+      {
+        "id":4,
+        "title": "iPhone",
+        "type": "item"
+      },
+      {
+        "id":5,
+        "title": "iMac",
+        "type": "item"
+      },
+      {
+        "id":6,
+        "title": "MacBook Pro",
+        "type": "item"
+      }
+    ]
+  },{
+  "title": "东方航空",
+  "type": "folder",
+  "products": [
+    {
+      "id":1,
+      "title": "iPhone",
+      "type": "item"
+    },
+    {
+      "id":2,
+      "title": "iMac",
+      "type": "item"
+    },
+    {
+      "id":3,
+      "title": "MacBook Pro",
+      "type": "item"
+    }
+  ]
+}
+]

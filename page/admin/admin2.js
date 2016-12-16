@@ -78,7 +78,7 @@ var data = [
 ];
 var tree;
 var myApp = angular.module("myApp",["ui.router"]);
-var treeload = function ($scope, $http, $stateParams,$rootScope,$state) {
+var defaultController = function ($scope, $http, $stateParams,$rootScope,$state) {
     $scope.name="chenyb";
     tree = $('#firstTree').tree({
         dataSource: function(options, callback) {
@@ -98,22 +98,20 @@ var treeload = function ($scope, $http, $stateParams,$rootScope,$state) {
         $state.go("home.in",{id:id});
     });
 };
-myApp.controller("mycontroller",treeload);
+var mk1Controller = function($scope, $http, $stateParams,$rootScope,$state){
+    console.log(1);
+};
+myApp.controller("mycontroller",defaultController);
 myApp.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         // $httpProvider.interceptors.push('myInterceptor');
         $stateProvider.state("home",{
             url:"/home",
-           /* abstract:true,*/
+            abstract:false,
             template:"<h1>待到来年九月八，我花开后百花杀。<br>冲天香阵透长安，满城尽带黄金甲。</h1>"
         }).state("home.in",{
             url:"/{id}",
-            views:{
-                "c1":{
-                    url: '/{id}',
-                    template: "<h1>嵌入页面测试。<br>我是home页面的子页面。</h1>"
-                }
-            }
+            templateUrl:"inner2.html", controller:"mk1Controller",controllerAs:"mk1Controller"
         }).state("about",{
             url:"/about",
             template:"<h1>三十年功尘与土，八千里路云和月。<br>莫等闲，白了少年头，空悲切。</h1>"
@@ -122,7 +120,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
             template:"<h1>靖康耻犹未雪，臣子恨何时灭，<br>驾长车踏破贺兰山缺。壮士饥餐胡虏肉，<br>笑谈渴饮匈奴血。待从头，收拾旧山河，朝天阙。</h1>"
         }).state("mydefine",{
             url:"/xxx",
-            template:"<h1>hehe，<br>heihei，<br>haha</h1>"
+            template:"<h1>hehe，<br>heihei，<br>如何使用路径参数，请在点击树节点的时候观察uri的路径变化！</h1>"
         });
         $urlRouterProvider.otherwise("/home");
     }
