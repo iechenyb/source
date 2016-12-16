@@ -1,0 +1,198 @@
+<html class="am-touch js cssanimations ng-scope" ng-app="myapp"><head>
+    <meta charset="utf-8">
+    <title>增值服务中心</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="主页">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 设置360浏览器使用webkit引擎 -->
+    <meta name="renderer" content="webkit">
+    <!-- 取消百度移动页面调整-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link rel="stylesheet" href="cdn/amazeui.min.css">
+    <link rel="stylesheet" href="http://analyse.kiiik.com:80/assets/css/admin.css">
+    <link rel="stylesheet" href="http://analyse.kiiik.com:80/css/base.css">
+    <script src="//hm.baidu.com/hm.js?62f4a86b2054d87b4e28af6b28286d35"></script>
+    <script src="http://analyse.kiiik.com:80/assets/js/jquery.min.js"></script>
+    <script src="http://analyse.kiiik.com:80/assets/js/amazeui.min.js"></script>
+
+    <style>
+        #demo{
+            margin: 0 auto;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        ul.nav{
+            list-style: none;
+            font-family: "Microsoft Yahei"
+        }
+        ul.nav li{
+            height: 60px;
+            line-height: 25px;
+            color: #ffffff;
+            cursor: pointer;
+            background-color: #67544D;
+            padding: 15px;
+        }
+        @media screen and (min-width: 844px){
+            #demo{
+                width: 845px;
+            }
+            #icon{
+                display: none;
+            }
+            ul.nav>li{
+                height: 60px;
+                line-height: 25px;
+                display: inline-block;
+                margin-left: 15px;
+                position: relative;
+            }
+            ul.submenu{
+                position: absolute;
+                z-index: 99;
+                top: 20px;
+                left: -20px;
+                width: 130px;
+                display: none;
+                margin-left: 20px
+            }
+            ul.submenu li{
+                width: 100%;
+                margin-left: -35px;
+                line-height: 100%;
+                text-align: center;
+            }
+        }
+        @media screen and (max-width:843px){
+            #demo{
+                position: relative;
+            }
+            #icon{
+                display: inline-block;
+                font-size: 20px;
+                position: relative;
+            }
+            ul.nav{
+                width: 100%;
+                position: relative;
+                top: -18px;
+                left: 0;
+                display: none;
+            }
+            ul.nav>li{
+                height: 60px;
+                line-height: 25px;
+                margin-left: -40px;
+                position: relative;
+                height: auto;
+            }
+            ul.submenu{
+                display:none;
+                color: white
+            }
+            .shownav{
+                display: block;
+            }
+        }
+
+    </style>
+  </head>
+<body>
+
+<div id="demo">
+    <img class="icon-menu" ><img  id="icon"src="image/favicon.ico"> </img></span>
+    <ul class="nav">
+        <li>首页</li>
+        <li>前端开发
+            <ul class="submenu">
+                <li>HTML-CSS</li>
+                <li>JQuery</li>
+                <li>JavaScript</li>
+            </ul>
+        </li>
+        <li>后端开发
+            <ul class="submenu">
+                <li>PHP</li>
+                <li>Python</li>
+                <li>Ruby</li>
+            </ul>
+        </li>
+        <li>移动开发
+            <ul class="submenu">
+                <li>Android</li>
+                <li>IOS</li>
+            </ul>
+        </li>
+        <li>编程语言
+            <ul class="submenu">
+                <li>C-C++</li>
+                <li>Java</li>
+            </ul>
+        </li>
+        <li>业界分享</li>
+        <li>开发平台
+            <ul class="submenu">
+                <li>Linux-Vim</li>
+                <li>Git</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!--[if lt IE 10]>
+<script src="http://analyse.kiiik.com:80/js/ie_update.js"></script>
+<![endif]-->
+<script src="http://analyse.kiiik.com:80/assets/js/amazeui.min.js"></script>
+<script src="http://analyse.kiiik.com:80//assets/js/angular.js"></script>
+<script src="http://analyse.kiiik.com:80/js/base.js"></script>
+<script src="http://analyse.kiiik.com:80/js/baidutongji.js?version=Math.random()"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $('.nav>li').each(function()
+        {
+            $(this).on({
+                mouseover:function(){
+                    $(this).css({backgroundColor:"#48403D",color:"#ACE360"})
+                            .find("ul").slideDown(500).
+                    find("li").each(function(){
+                        $(this).hover(
+                                function()
+                                {
+                                    $(this).css({backgroundColor:"#48403D",
+                                        color:"#ACE360"});
+                                },
+                                function(){
+                                    $(this).css({backgroundColor:"#67544D",
+                                        color:"#FFFFFF"});
+                                });
+                    });
+                },
+                mouseleave:function(){
+                    $(this).find("ul").css("display","none").stop(true);
+                },
+                mouseout:function(){
+                    $(this).css({backgroundColor:"#67544D",
+                        color:"#FFFFFF"});
+                }
+            });
+        });
+        /*toggleClass不起作用？？？？？*/
+        var count = 1;
+        $("#icon").on("click",function(){
+            if(count == 1){
+                $("ul.nav").css("display","block");
+                count++;
+            }
+            else{
+                $("ul.nav").css("display","none");
+                count=1;
+            }
+        });
+    });
+</script>
+</body>
+</html>

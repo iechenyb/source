@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @media only screen  and (min-width: 1000px) {
+            body {
+                background: gray;
+                margin: 0 auto;
+            }
+        }
+
+        @media only screen  and (min-width: 800px)and (max-width: 1000px) {
+            body {
+                background: green;
+                margin: 0 auto;
+            }
+        }
+        @media only screen  and (min-width: 500px) and (max-width: 800px) {
+            body {
+                background: yellow;
+                margin: 0 auto;
+            }
+        }
+        @media only screen  and (min-width: 100px) and (max-width: 500px) {
+            body {
+                background: red;
+                margin: 0 auto;
+            }
+        }
+        @media only screen  and (max-width: 100px) {
+            body {
+                background: aqua;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>若需@media生效，则需要关闭Elements-Emulation-Emulate mobile，否则不能生效，即调整窗口宽度，没有反应。<br>
+    小于100px 显示浅蓝色<br>
+    宽度  100px-500px  显示红色<br>
+    宽度  500px-800px  显示黄色<br>
+    宽度  100px-1000px  显示绿色<br>
+    大于1000px 显示灰色<br>
+    直接拖动窗口  查看颜色变化。
+</h1>
+</body>
+</html>

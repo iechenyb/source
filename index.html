@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="东航期货"/>
+    <link rel="icon" type="image/png" href="/image/favicon.ico">
+    <title>东航期货</title>
+    <link href="cdn/jquery.fullPage.min.css" rel="stylesheet">
+    <link href="cdn/animate.min.css" rel="stylesheet">
+    <link href="cdn/jquery.webui-popover.min.css" rel="stylesheet">
+    <link href="cdn/amazeui.min.css" rel="stylesheet">
+    <link href="css/component.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="image/index/icon/iconfont.css" rel="stylesheet">
+</head>
+
+<body ng-app="app">
+<div id="fullpage">
+    <div class="section">
+        <div class="dh-index">
+            <img src="image/index/B_01.png" class="dh-bg">
+            <img src="image/logo.png" class="dh-logo">
+            <div id="nav-icon2">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="ss">
+                <img src="image/index/logostr.png" class="dh-logostr layer">
+                <h1>We Focus On Your Futures</h1>
+                <input class="am-form-field" required="" placeholder="能为你做什么？">
+                <span class="am-icon-search"></span>
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="marquee-title"><i class="am-icon-volume-up" style="margin-right: 1rem;"></i>公司公告
+                <marquee onmouseover='this.stop()' onmouseout=this.start()>
+                    <span class="title">05-25</span><a class="text" href="http://localhost:3000/web/page/gywm/">关于64067011、64067022电话使用范围的通知</a>
+                    <span class="title">09-30</span><a class="text" href="http://localhost:3000/web/page/gywm/">关于调整玻璃和动力煤品种手续费减收标准的通知</a>
+                    <span class="title">09-29</span><a class="text" href="http://localhost:3000/web/page/gywm/">关于国庆假期期间风险提示</a>
+                </marquee>
+            </div>
+
+        </div>
+    </div>
+    <div class="section">
+        <ul class="dh-page">
+            <li data-anijs="if: mouseenter, on: .dh-page li:nth-child(1), do: flipInY animated,to: .dh-page li:nth-child(1)>div>p">
+                <div class="dh-up-title">
+                    <h1>
+                        <i class="iconfont" style="font-size: 9rem;">&#xe604;</i>
+                        </br>
+                        客服中心
+                        <hr>
+                    </h1>
+                </div>
+                <div>
+                    <p style="display: none">
+                        <a href="http://localhost:3000/web/page/gywm/">极速开户</a></br>
+                        <a href="http://localhost:3000/web/page/gywm/">交易日历</a></br>
+                        <a href="http://localhost:3000/web/page/gywm/">常见问题</a></br>
+                    </p>
+                </div>
+            </li>
+            <li data-anijs="if: mouseenter, on: .dh-page li:nth-child(2), do: flipInY animated,to: .dh-page li:nth-child(2)>div>p">
+                <div class="dh-up-title">
+                    <h1>
+                        <i class="iconfont" style="font-size: 9rem;">&#xe603;</i>
+                        </br>
+                        软件中心
+                        <hr>
+                    </h1>
+                </div>
+                <div>
+                    <p style="display: none">
+                        <a href="http://localhost:3000/web/page/gywm/">移动终端</a></br>
+                        <a href="http://localhost:3000/web/page/gywm/">PC终端</a></br>
+                        <a href="http://localhost:3000/web/page/gywm/">资料下载</a></br>
+                    </p>
+                </div>
+            </li>
+            <li data-anijs="if: mouseenter, on: .dh-page li:nth-child(3), do: flipInY animated,to: .dh-page li:nth-child(3)>div>p">
+                <div class="dh-up-title">
+                    <h1>
+                        <i class="iconfont" style="font-size: 10rem;">&#xe605;</i>
+                        </br>
+                        增值中心
+                        <hr>
+                    </h1>
+                </div>
+                <div>
+                    <p style="display: none">
+                        <a href="http://localhost:3000/web/page/gywm/">关于我们</a></br>
+                        <a href="http://localhost:3000/web/page/jyts/">交易提示</a></br>
+                        <a href="http://localhost:3000/web/page/gsgg/">公司公告</a></br>
+                        <a href="http://localhost:3000/web/page/bzjgg/">保证金公告</a></br>
+                    </p>
+                </div>
+            </li>
+            <li data-anijs="if: mouseenter, on: .dh-page li:nth-child(4), do: flipInY animated,to: .dh-page li:nth-child(4)>div>p">
+                <div class="dh-up-title">
+                    <h1>
+                        <i class="iconfont" style="font-size: 10rem;-webkit-text-stroke-width: 2.2px;">&#xe607;</i>
+                        </br>
+                        蓝海密剑
+                        <hr>
+                    </h1>
+                </div>
+                <div>
+                    <p style="display: none">
+                        <a href="http://localhost:3000/web/page/gywm/">报名参赛</a></br>
+                        <a href="http://localhost:3000/web/page/gywm/">实盘排行</a></br>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="section">
+        <div class="dh-last">
+            <h1>联系我们</h1>
+            <div class="hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3b dh-icons1">
+                <p class="hi-icon icon-dianhua">电话</p>
+                <p class="hi-icon icon-consult">咨询</p>
+                <p class="hi-icon icon-weixin-copy">微信</p>
+                <p class="hi-icon icon-iconfontweibowukuang">微博</p>
+            </div>
+        </div>
+        <div style="position: absolute;width: 100%;top:65%;height: 35%;background-color: #233853;"></div>
+        <dhfooter style="position: absolute;width: 100%;bottom: 0"></dhfooter>
+    </div>
+</div>
+
+
+<script src="cdn/jquery.min.js"></script>
+<script src="cdn/jquery.fullPage.min.js"></script>
+<script src="cdn/jquery.webui-popover.min.js"></script>
+<script src="cdn/angular.min.js"></script>
+<script src="cdn/angular-ui-router.min.js"></script>
+<script src="cdn/anijs-min.js"></script>
+<script src="cdn/ban.js"></script>
+<script src="common/footer/index.js"></script>
+<script>
+    angular.module('app', ['ui.router', 'dhfooter']);
+    $('#fullpage').fullpage({
+        afterLoad: function (anchorLink, index) {
+            if (index == 2) {
+            }
+        }
+    });
+    $(document).ready(function () {
+        $('#nav-icon2').click(function () {
+            $(this).toggleClass('open');
+        });
+        $('.icon-dianhua').webuiPopover({
+            content: '4008-889-889',
+            trigger: 'hover',
+            animation: 'pop'
+        });
+        $('.icon-weixin-copy').webuiPopover({
+            content: '<img src="image/index/wx.png" style="height: 180px;width: 180px">',
+            style: 'dh-wx',
+            width: 215,
+            height: 210,
+            trigger: 'hover',
+            animation: 'pop'
+        });
+        $('.icon-iconfontweibowukuang').webuiPopover({
+            content: '微博',
+            trigger: 'hover',
+            animation: 'pop'
+        });
+        $('.icon-consult').webuiPopover({
+            content: '在线咨询',
+            trigger: 'hover',
+            animation: 'pop'
+        });
+    });
+</script>
+</body>
+</html>
