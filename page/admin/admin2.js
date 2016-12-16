@@ -78,7 +78,6 @@ var data = [
 ];
 var tree;
 var myApp = angular.module("myApp",["ui.router"]);
-
 var treeload = function ($scope, $http, $stateParams,$rootScope,$state) {
     $scope.name="chenyb";
     tree = $('#firstTree').tree({
