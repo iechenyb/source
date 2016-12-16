@@ -95,11 +95,21 @@ var defaultController = function ($scope, $http, $stateParams,$rootScope,$state)
         console.log("treenodename="+data.selected[0].title);
         $scope.name=data.selected[0].title;
         var id = data.selected[0].id;
-        $state.go("home.in",{id:id});
+        //$state.go("home.one",{id:id});//一级目录
+        //$state.go("home.one.two",{id:id});//二级目录
+        //$state.go("home.one.two",{id:id,id1:id+1});//一次访问
+        //$state.go("home.xxx.two",{id:id,id1:id+1});//一次访问 不可用
+        $state.go("home.two",{id:id,id1:id+1});
     });
 };
-var mk1Controller = function($scope, $http, $stateParams,$rootScope,$state){
-    console.log(1);
+var mk1Controller = function($scope, $http){
+    console.log("mk1Controller");
+};
+var mk2Controller = function($scope, $http){
+    console.log("mk2Controller");
+};
+var mk3Controller = function($scope, $http){
+    console.log("mk3Controller");
 };
 myApp.controller("mycontroller",defaultController);
 myApp.config(['$stateProvider', '$urlRouterProvider',
@@ -108,10 +118,18 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider.state("home",{
             url:"/home",
             abstract:false,
-            template:"<h1>待到来年九月八，我花开后百花杀。<br>冲天香阵透长安，满城尽带黄金甲。</h1>"
-        }).state("home.in",{
+            templateUrl:"inner2.html"
+        }).state("home.one",{
             url:"/{id}",
-            templateUrl:"inner2.html", controller:"mk1Controller",controllerAs:"mk1Controller"
+            templateUrl:"inner2.html",controller:mk1Controller,controllerAs:"mk1Controller"
+        }).state("home.one.two",{
+            url:"/{id}/{id1}",
+            templateUrl:"inner2.html",controller:function($scope){
+                console.log("xxxxxxxxx");
+            },controllerAs:"mk2Controller"
+        }).state("home.two",{
+            url:"/{id}/:id1",
+            templateUrl:"inner2.html",controller:mk3Controller,controllerAs:"mk3Controller"
         }).state("about",{
             url:"/about",
             template:"<h1>三十年功尘与土，八千里路云和月。<br>莫等闲，白了少年头，空悲切。</h1>"

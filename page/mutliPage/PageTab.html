@@ -1,0 +1,9 @@
+<div>
+    <div>
+        <span style="width:100px"><a ui-sref="PageTab.Page1">新闻类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+        <span style="width:100px"><a ui-sref="PageTab.Page2">娱乐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+        <span style="width:100px"><a ui-sref="PageTab.Page3">纪实&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+        <span style="width:100px" ng-repeat="vo in urls"><a ui-sref="{{vo}}">{{vo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+    </div>
+    <div ui-view></div>
+</div>
