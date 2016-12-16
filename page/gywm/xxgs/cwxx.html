@@ -1,0 +1,67 @@
+<style>
+    .cwxx {
+        margin-top: 2rem;
+        margin-bottom: 8rem;
+        border: 1px solid #ddd;
+    }
+    .cwxx tr:first-of-type td{
+        color: white!important;
+        background-color: #277DAE!important;
+    }
+</style>
+<table class="am-table cwxx am-table-hover">
+    <tbody>
+    <tr>
+        <td>
+            年度
+        </td>
+        <td class="am-text-right">
+            净资本
+        </td>
+        <td class="am-text-right">
+            净资产
+        </td>
+        <td class="am-text-right">
+            权益总额
+        </td>
+        <td class="am-text-right">
+            手续费收入
+        </td>
+        <td>
+            净利润
+        </td>
+        <td>
+            主审会计事务所
+        </td>
+        <td>
+            审计意见类型
+        </td>
+    </tr>
+    <tr ng-repeat="x in cwxx">
+        <td>
+            {{x.nd}}
+        </td>
+        <td class="am-text-right">
+            {{x.jzb}}
+        </td>
+        <td class="am-text-right">
+            {{x.jzc}}
+        </td>
+        <td class="am-text-right">
+            {{x.qyze}}
+        </td>
+        <td class="am-text-right">
+            {{x.sxfsr}}
+        </td>
+        <td class="am-text-right">
+            {{x.jlr}}
+        </td>
+        <td >
+            {{x.zs}}
+        </td>
+        <td >
+            {{x.yj}}
+        </td>
+    </tr>
+    </tbody>
+</table>

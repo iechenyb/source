@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>ngView例子</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
+    <link href="../../cdn/amazeui.min.css" rel="stylesheet">
+    <style type="text/css">
+        .container {
+            -webkit-perspective: 500;
+            -moz-perspective: 500;
+            -ms-perspective: 500;
+            perspective: 500;
+            position: relative;
+            margin-top:10px;
+            padding-top: 10px;
+            border:1px gray solid;
+        }
+        /*.slide.ng-leave {
+            position: relative;
+        }
+        .slide.ng-enter {
+            position: absolute;
+        }
+        .slide.ng-enter, .slide.ng-leave {
+            -webkit-transition: -webkit-transform 0.3s ease-in, opacity 0.3s ease-in;
+            -moz-transition: -moz-transform 0.3s ease-in, opacity 0.3s ease-in;
+            -o-transition: -o-transform 0.3s ease-in, opacity 0.3s ease-in;
+            transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+        }
+        .slide.ng-enter, .slide.ng-leave.ng-leave-active {
+            -webkit-transform: scaleX(0.0001);
+            -o-transform: scaleX(0.0001);
+            transform: scaleX(0.0001);
+            opacity: 0;
+        }
+        .slide, .slide.ng-enter.ng-enter-active {
+            -webkit-transform: scaleX(1);
+            -o-transform: scaleX(1);
+            transform: scaleX(1);
+            opacity: 1;
+        }*/
+    </style>
+</head>
+<body ng-controller="mycontroller">
+    <div class="am-g am-g-fixed">
+        <header role="banner" id="top" class="navbar navbar-static-top navbar-inverse">
+        <nav>
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a href ui-sref="home">Home</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a href ui-sref="about">About</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a href ui-sref="contacts">Contacts</a>
+                </li>
+               <li ui-sref-active="active">
+                    <a href ui-sref="mydefine">自定义</a>
+                </li>
+            </ul>
+        </nav>
+        </header>
+    </div>
+<section>
+    <div class="am-g am-g-fixed">
+        <div class="am-u-sm-2" style="margin-top:10px;border:0px gray solid;">
+            <!--<div ui-view="treeview">系统菜单窗口</div>-->
+            <ul class="am-tree" id="firstTree">
+                <li class="am-tree-branch am-hide" data-template="treebranch">
+                    <div class="am-tree-branch-header">
+                        <button class="am-tree-branch-name">
+                            <span class="am-tree-icon am-tree-icon-folder"></span>
+                            <span class="am-tree-label"></span>
+                        </button>
+                    </div>
+                    <ul class="am-tree-branch-children"></ul>
+                    <div class="am-tree-loader"><span class="am-icon-spin am-icon-spinner"></span></div>
+                </li>
+                <li class="am-tree-item am-hide" data-template="treeitem">
+                    <button class="am-tree-item-name">
+                        <span class="am-tree-icon am-tree-icon-item"></span>
+                        <span class="am-tree-label"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="am-u-sm-10" style="margin-top:10px;border:0px gray solid;">
+            <div class="container" >
+                <a ui-sref="level1">窗口1</a> &nbsp;&nbsp;&nbsp;&nbsp;<a ui-sref="level2">窗口2</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a ng-click="toLevel1()">窗口1click</a> &nbsp;&nbsp;&nbsp;&nbsp;<a ng-click="toLevel2()">窗口2click</a>
+            </div>
+            <div class="container" >
+                <div class="slide" ui-view>默认窗口&nbsp;&nbsp;&nbsp;&nbsp;{{mname}}</div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="../../cdn/jquery.min.js"></script>
+<script src="../../cdn/jquery.fullPage.min.js"></script>
+<script src="../../cdn/jquery.webui-popover.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular.min.js"></script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular-ui-router.min.js"></script>
+<script src="http://amazeui.github.io/tree/amazeui.tree.js"></script>
+<script type="text/javascript" src="admin2.js"></script>
+</html>

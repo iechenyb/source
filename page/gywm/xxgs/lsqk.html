@@ -1,0 +1,141 @@
+<style>
+    .lsqk-timeline {
+        position: relative;
+        padding: 2em 0;
+        margin-top: 2em;
+    }
+
+    .lsqk-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 18px;
+        height: 100%;
+        width: 4px;
+        background: #2e478d;
+    }
+
+    .lsqk-timeline-block {
+        position: relative;
+        margin: 2em 0;
+    }
+
+    .lsqk-timeline-block:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .lsqk-timeline-block:first-child {
+        margin-top: 0;
+    }
+
+    .lsqk-timeline-block:last-child {
+        margin-bottom: 0;
+    }
+
+    .lsqk-timeline-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+        background-color: white;
+    }
+
+    .lsqk-timeline-text {
+        text-align: center;
+        width: 30%;
+        border-radius: 6px;
+        background: #d4d4d4;
+        padding: 10px;
+        font-weight: bolder;
+    }
+
+    .lsqk-timeline-content {
+        position: relative;
+        margin-left: 60px;
+        background: white;
+        border-radius: 0.25em;
+        padding: 1em;
+        box-shadow: 0 3px 0 #d7e4ed;
+        background-color: blanchedalmond;
+    }
+
+    .lsqk-timeline-content .lsqk-date {
+        padding: .8em 0;
+        opacity: .7;
+    }
+
+    @media only screen and (min-width: 1170px) {
+        .lsqk-timeline::before {
+            left: 50%;
+            margin-left: -2px;
+        }
+        .lsqk-timeline-block {
+            margin: 4em 0;
+        }
+        .lsqk-timeline-img {
+            width: 60px;
+            height: 60px;
+            left: 50%;
+            margin-left: -30px;
+            -webkit-transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+        }
+        .lsqk-timeline-img span {
+            display: block;
+            position: relative;
+            left: 20%;
+            top: 20%;
+        }
+        .lsqk-timeline-content {
+            margin-left: 0;
+            padding: 0em;
+            width: 45%;
+            background-color: white;
+        }
+        .lsqk-timeline-content>h2{
+            padding-left: 2rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            background-color: #277DAE;
+            color: white;
+            text-align: center;
+        }
+        .lsqk-timeline-content>div{
+            padding: 2rem;
+            background-color: white;
+        }
+        .lsqk-timeline-block:nth-child(even) .lsqk-timeline-content {
+            float: right;
+        }
+        .lsqk-timeline-content .lsqk-date {
+            position: absolute;
+            width: 10rem;
+            left: 130%;
+            top: 6px;
+        }
+        .lsqk-timeline-block:nth-child(even) .lsqk-timeline-content .lsqk-date {
+            left: auto;
+            right: 130%;
+            text-align: right;
+        }
+    }
+</style>
+<section class="lsqk-container lsqk-timeline">
+    <div  ng-repeat="x in lsqk" class="lsqk-timeline-block">
+        <div class="lsqk-timeline-img">
+            <span class="am-icon-home am-icon-lg"></span>
+        </div>
+        <div class="lsqk-timeline-content am-scrollspy-init am-scrollspy-inview am-animation-scale-up" data-am-scrollspy="{animation:'scale-up'}">
+            <h2>{{x.title}}</h2>
+            <div>
+                {{x.text}}
+            </div>
+            <span class="lsqk-date">{{x.sj}}</span>
+        </div>
+    </div>
+</section>

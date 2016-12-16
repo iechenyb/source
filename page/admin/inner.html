@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ 我是嵌入页面！<br>
+welcom to you,<font color="blue">{{name}}</font>!
+<div ng-repeat="vo in arrs">
+     arrs[{{$index}}]={{vo}}
+ </div>
+ <div ng-repeat="vo in arrs">
+     <a ui-sref="{{vo}}"> {{vo}}</a>
+ </div>
+ path={{id}},path1={{id1}}
+
+ photoId={{photoId}}
+<!-- <script type="text/javascript" src="inner.js"></script>-->
+</body>
+</html>
