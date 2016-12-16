@@ -1,0 +1,86 @@
+<style>
+    .dhscrolltabs > .wrapper {
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 5px;
+        height: 50px;
+    }
+
+    .dhscrolltabs > .wrapper .list {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        min-width: 3000px;
+        margin-left: 12px;
+        margin-top: 0px;
+        padding: 0.5rem;
+    }
+    .dhscrolltabs>.wrapper>ul>li>a {
+        position: relative;
+    }
+    .dhscrolltabs .active .over {
+        width: 50%;
+        margin-left: -25%;
+        border: 1px solid #337ab7;
+        border-width: 1px 0;
+    }
+    .dhscrolltabs .over {
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        position: absolute;
+        top: .5rem;
+        bottom: .5rem;
+        left: 50%;
+        width: 0%;
+        margin-left: -0%;
+        border: 1px solid #337ab7;
+        border-width: 1px 0;
+    }
+    .dhscrolltabs .am-nav-pills > li + li {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .dhscrolltabs > .wrapper .list li {
+        display: table-cell;
+        position: relative;
+        text-align: center;
+        cursor: grab;
+        cursor: -webkit-grab;
+        color: #efefef;
+        vertical-align: middle;
+    }
+
+    .dhscrolltabs > .scroller {
+        text-align: center;
+        cursor: pointer;
+        display: none;
+        padding: 7px;
+        padding-top: 11px;
+        white-space: no-wrap;
+        vertical-align: middle;
+        background-color: #fff;
+    }
+
+    .dhscrolltabs > .scroller-right {
+        float: right;
+    }
+
+    .dhscrolltabs > .scroller-left {
+        float: left;
+    }
+</style>
+<div class="dhscrolltabs">
+    <div class="scroller scroller-left"><i class="am-icon-angle-left"></i></div>
+    <div class="scroller scroller-right"><i class="am-icon-angle-right"></i></div>
+    <div class="wrapper">
+        <ul class="am-nav am-nav-pills list" id="myTab">
+            <li ng-repeat="link in dhscrolltabs.tabs" ui-sref-active="active">
+                <a ui-sref="{{link.uisref}}">{{link.title}}<span class="over"></span></a>
+            </li>
+        </ul>
+    </div>
+</div>

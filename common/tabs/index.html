@@ -1,0 +1,49 @@
+<style>
+    .dhtabs>ul {
+        list-style: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .dhtabs>ul>li {
+        float: left;
+        width: 12.5%;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .dhtabs>ul>li>a {
+        position: relative;
+    }
+    .dhtabs>ul .over {
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        position: absolute;
+        top: -.5rem;
+        bottom: -.5rem;
+        left: 50%;
+        width: 0%;
+        margin-left: -0%;
+        border: 1px solid #337ab7;
+        border-width: 1px 0;
+    }
+    .dhtabs>ul>.active .over {
+        width: 50%;
+        margin-left: -25%;
+        border: 1px solid #337ab7;
+        border-width: 1px 0;
+    }
+</style>
+
+<div class="dhtabs">
+    <ul class="am-g">
+        <li ng-repeat="link in dhtabs.tabs" ui-sref-active="active">
+            <a ng-if="link.uisref" ui-sref="{{link.uisref}}">{{link.name}}<span class="over"></span></a>
+            <a ng-if="link.href" href="{{link.href}}">{{link.name}}<span class="over"></span></a>
+        </li>
+    </ul>
+</div>
+
+
