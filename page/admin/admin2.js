@@ -95,11 +95,11 @@ var defaultController = function ($scope, $http, $stateParams,$rootScope,$state)
         console.log("treenodename="+data.selected[0].title);
         $scope.name=data.selected[0].title;
         var id = data.selected[0].id;
-        //$state.go("home.one",{id:id});//一级目录
+        $state.go("home.one",{id:id});//一级目录
         //$state.go("home.one.two",{id:id});//二级目录
-        //$state.go("home.one.two",{id:id,id1:id+1});//一次访问
+        //$state.go("home.one.two",{id:id,id1:id+1});//一次访问,跳三级目录
         //$state.go("home.xxx.two",{id:id,id1:id+1});//一次访问 不可用
-        $state.go("home.two",{id:id,id1:id+1});
+        //$state.go("home.two",{id:id,id1:id+1});//两级目录
     });
 };
 var mk1Controller = function($scope, $http){
@@ -118,18 +118,18 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider.state("home",{
             url:"/home",
             abstract:false,
-            templateUrl:"inner2.html"
+            templateUrl:"inner.html"
         }).state("home.one",{
             url:"/{id}",
             templateUrl:"inner2.html",controller:mk1Controller,controllerAs:"mk1Controller"
         }).state("home.one.two",{
             url:"/{id}/{id1}",
-            templateUrl:"inner2.html",controller:function($scope){
+            templateUrl:"inner3.html",controller:function($scope){
                 console.log("xxxxxxxxx");
             },controllerAs:"mk2Controller"
         }).state("home.two",{
             url:"/{id}/:id1",
-            templateUrl:"inner2.html",controller:mk3Controller,controllerAs:"mk3Controller"
+            templateUrl:"inner4.html",controller:mk3Controller,controllerAs:"mk3Controller"
         }).state("about",{
             url:"/about",
             template:"<h1>三十年功尘与土，八千里路云和月。<br>莫等闲，白了少年头，空悲切。</h1>"
