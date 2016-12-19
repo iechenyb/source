@@ -2,8 +2,16 @@
  * Created by DHUser on 2016/12/14.
  */
 var tree;
-var myApp = angular.module("myApp",["ui.router"]);
+var myApp = angular.module("myApp",["ui.router","myInterceptor","myfooter","myheader"]);
 var defaultController = function ($scope, $http, $stateParams,$rootScope,$state) {
+   /* $scope.links = [
+        {name: '保证金调整公告', uisref: 'bzjgg'},
+        {name: '公司公告', href: '/page/gsgg'},
+    ];{{links}}*/
+    $scope.links = [
+        {name: '保证金调整公告', uisref: 'bzjgg'},
+        {name: '公司公告', href: '/page/gsgg'},
+    ];
     console.log("defaultController");
     $scope.name="chenyb";
     $scope.ddd =7;
@@ -42,10 +50,12 @@ var c1 = function ($scope,$http) {
         console.log(error);
     });
 }
+
+//myApp.config(['$stateProvider', '$urlRouterProvider',]
 myApp.controller("mycontroller",defaultController);
-myApp.config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
-        // $httpProvider.interceptors.push('myInterceptor');
+myApp.config(function($stateProvider, $urlRouterProvider,$urlRouterProvider,$httpProvider) {
+        $httpProvider.interceptors.push('myInterceptor');
+        //$locationProvider.html5Mode(false);
         $stateProvider.state("home",{
             url:"/home",
             abstract:false,
@@ -66,7 +76,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         });
         $urlRouterProvider.otherwise("/home");
     }
-])/*.component('myApp', {
+).component('myApp', {
  template: '<div class="app"><div ui-view>1231</div></div>',
  restrict: 'E'
- })*/;
+ });

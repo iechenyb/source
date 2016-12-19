@@ -77,7 +77,7 @@ var data = [
     },
 ];
 var tree;
-var myApp = angular.module("myApp",["ui.router"]);
+var myApp = angular.module("myApp",["ui.router","myfooter","myheader","myInterceptor"]);
 var defaultController = function ($scope, $http, $stateParams,$rootScope,$state) {
     $scope.name="chenyb";
     tree = $('#firstTree').tree({
@@ -93,7 +93,7 @@ var defaultController = function ($scope, $http, $stateParams,$rootScope,$state)
     });
     tree.on('selected.tree.amui', function (event, data) {
         console.log("treenodename="+data.selected[0].title);
-        $scope.name=data.selected[0].title;
+        $scope.name=data.selected[0].title;//使用多级目录的时候，为什么一直使用的是缺省的控制器
         var id = data.selected[0].id;
         $state.go("home.one",{id:id});//一级目录
         //$state.go("home.one.two",{id:id});//二级目录
@@ -142,7 +142,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
         });
         $urlRouterProvider.otherwise("/home");
     }
-])/*.component('myApp', {
+]).component('myApp', {
  template: '<div class="app"><div ui-view>1231</div></div>',
  restrict: 'E'
- })*/;
+ });
