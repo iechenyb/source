@@ -8,30 +8,31 @@
     <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
     <link href="../../cdn/amazeui.min.css" rel="stylesheet">
     <style>
-        .expander {
+        .c {
             border: 1px solid black;
             width: 250px;
         }
 
-        .expander>.title {
+        .c>.title {
             background-color: orange;
             color: white;
             padding: .1em .3em;
             cursor: pointer;
         }
 
-        .expander>.body {
+        .c>.body {
             padding: .1em .3em;
         }
 
     </style>
     <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="angular-ui-router.min.js"></script>
 </head>
 <body ng-controller="mycontroller">
 <hr>
 <!--<myheader links="mobanf.links"></myheader>
 <hr>-->
-<header></header>
+<ybheader></ybheader>
 <directive1>
     <span>原有内容</span>
 </directive1>
@@ -43,9 +44,15 @@
 <section>
     <div ui-view>
     <center>主工作区
-        <expander class='expander' expander-title='title'>
+        <expander class='c' expander-title='title'>
             {{text}}
         </expander>
+        <hr>
+        <accordion>
+            <expander1 class='c' ng-repeat='expander in expanders' expander-title='expander.title'>
+                {{expander.text}}
+            </expander1>
+        </accordion>
     </center>
     </div>
 </section>
@@ -54,6 +61,7 @@
 <hr>
 <!--<myfooter></myfooter>http://blog.csdn.net/u010147288/article/details/51613984
 <hr>-->
+<script type="text/javascript" src="../../component/header/index.js"></script>
 <script type="text/javascript" src="moban.js"></script>
 <script>
 
