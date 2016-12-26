@@ -7,36 +7,64 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
     <link href="../../cdn/amazeui.min.css" rel="stylesheet">
+    <style>
+        .c {
+            border: 1px solid black;
+            width: 250px;
+        }
+
+        .c>.title {
+            background-color: orange;
+            color: white;
+            padding: .1em .3em;
+            cursor: pointer;
+        }
+
+        .c>.body {
+            padding: .1em .3em;
+        }
+
+    </style>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="angular-ui-router.min.js"></script>
 </head>
 <body ng-controller="mycontroller">
 <hr>
 <!--<myheader links="mobanf.links"></myheader>
 <hr>-->
-<myheader links="mobanf.links"></myheader>
+<ybheader></ybheader>
+<directive1>
+    <span>原有内容</span>
+</directive1>
+<directive>
+    <span>原有内容</span>
+</directive>
+<!--<myheader links="links"></myheader>-->
 <hr>
 <section>
     <div ui-view>
-    <center>主工作区：{{data}}
-     <div><img src="../../image/my/{{id}}.jpg"></img></div><div><img src="../../image/my/{{id1}}.jpg"></img></div>
-        <div><img src="../../image/my/{{id2}}.jpg"></img></div>
+    <center>主工作区
+        <expander class='c' expander-title='title'>
+            {{text}}
+        </expander>
+        <hr>
+        <accordion>
+            <expander1 class='c' ng-repeat='expander in expanders' expander-title='expander.title'>
+                {{expander.text}}
+            </expander1>
+        </accordion>
     </center>
     </div>
 </section>
 <hr>
-<myfooter></myfooter>
+<!--<myfooter></myfooter>-->
 <hr>
-<!--<myfooter></myfooter>
+<!--<myfooter></myfooter>http://blog.csdn.net/u010147288/article/details/51613984
 <hr>-->
-</body>
-<script src="../../cdn/jquery.min.js"></script>
-<script src="../../cdn/jquery.fullPage.min.js"></script>
-<script src="../../cdn/jquery.webui-popover.min.js"></script>
-<script type="text/javascript" src="../../cdn/angular.min.js"></script>
-<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
-<script type="application/x-javascript" src="https://rawgit.com/iechenyb/source/master/cdn/angular-ui-router.min.js"></script>
-<script src="http://amazeui.github.io/tree/amazeui.tree.js"></script>
 <script type="text/javascript" src="../../component/header/index.js"></script>
-<script type="text/javascript" src="../../component/footer/index.js"></script>
-<script type="text/javascript" src="../../component/common.js"></script>
 <script type="text/javascript" src="moban.js"></script>
+<script>
+
+</script>
+</body>
 </html>
