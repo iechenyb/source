@@ -1,20 +1,11 @@
 <div class="am-g am-g-fixed">
     <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
-            <li ng-repeat="link in myheader.links" ui-sref-active="am-active">
-                <a ng-if="link.uisref" ui-sref="{{link.uisref}}">{{link.name}}</a>
-                <a ng-if="link.href" href="{{link.href}}">{{link.name}}</a>
+            <li ng-repeat="link in myheader.links|orderBy as x" ui-sref-active="am-active">
+                <a ng-if="link.uisref" ui-sref="toPage({id:{{link.uisref}}})">{{link.name}}</a>
+                <a ng-if="link.href" href="javascript:void(0);" ng-click="toPage(link.href)">{{link.name}}</a>
             </li>
         </ul>
     </div>
-    <div class="am-g am-g-fixed">
-        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse1">
-            <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li ng-repeat="link in urls" ui-sref-active="am-active">
-                    <a ng-if="link.uisref" ui-sref="{{link.uisref}}" ng-click="toPage(link.uisref)">{{link.name}}</a>
-                    <a ng-if="link.href" href="javascript:void(0);" ng-click="toPage(link.href)">{{link.name}}</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    {{x}}
 </div>
