@@ -1,107 +1,58 @@
-var app = angular.module("myApp", []);
-app.directive("directive1", function() {
-    return {
-        restrict : "E",
-        template : "<h1>自定义指令!</h1>",
-        transclude:true
-    };
-});
-app.directive("directive", function() {
-    return {
-        restrict : "E",
-        template : "<h1>自定义指令!<span ng-transclude></span></h1>",
-        transclude:true
-    };
-});
-app.directive('expander', function() {
-    return {
-        restrict : 'EA',
-        replace : true,
-        transclude : true,
-        scope : {
-            title : '=expanderTitle'
-        },
-        template : '<div>'
-        + '<div class="title" ng-click="toggle()">{{title}}</div>'
-        + '<div class="body" ng-show="showMe" ng-transclude></div>'
-        + '</div>',
-        link : function(scope, element, attrs) {
-            scope.showMe = false;
-            scope.toggle = function toggle() {
-                scope.showMe = !scope.showMe;
-            }
-        }
+/**
+ * Created by DHUser on 2016/12/14.
+ */
+var myApp = angular.module("myApp",["ui.router","myfooter","myheader","myInterceptor"]);
+var moban = function ($scope, $http, $stateParams,$rootScope,$state) {
+    $scope.data=[1,3,4,5,6];
+    this.links=[];
+    $scope.links=[];
+    for(var i=1;i<=10;i++){
+        var tmp ={name:'菜单'+i,uisref:i};//uisref
+        //var tmp ={name:'菜单*'+i,href:i};//使用超链接
+        this.links.push(tmp);
+        $scope.links.push(tmp);
     }
-});
-app.directive('accordion', function() {
-    return {
-        restrict : 'EA',
-        replace : true,
-        transclude : true,
-        template : '<div ng-transclude></div>',
-        controller : function() {
-            var expanders = [];
-            this.gotOpened = function(selectedExpander) {
-                angular.forEach(expanders, function(expander) {
-                    if (selectedExpander != expander) {
-                        expander.showMe = false;
-                    }
-                });
-            }
-            this.addExpander = function(expander) {
-                expanders.push(expander);
-            }
-        }
+    $scope.id=1;
+    $scope.id1=2;
+    $scope.id2=3;
+    console.log("moban");
+};
+var mobanf = function ($scope,$state) {
+    console.log("mobanf");
+    var id = $state.params.id;
+    if(id==null){
+        id=1;
+    }else{
+        id=parseInt(id);
     }
-});
-app.directive('expander1', function() {
-    return {
-        restrict : 'EA',
-        replace : true,
-        transclude : true,
-        require : '^?accordion',
-        scope : {
-            title : '=expanderTitle'
-        },
-        template : '<div>'
-        + '<div class="title" ng-click="toggle()">{{title}}</div>'
-        + '<div class="body" ng-show="showMe" ng-transclude></div>'
-        + '</div>',
-        link : function(scope, element, attrs, accordionController) {
-            scope.showMe = false;
-            accordionController.addExpander(scope);
-            scope.toggle = function toggle() {
-                scope.showMe = !scope.showMe;
-                accordionController.gotOpened(scope);
-            }
-        }
+    if(id>6){
+        $scope.id = id%7+1;
+        $scope.id1 = id%7+2;
+        $scope.id2 = id%7+3 ;
+    }else {
+        $scope.id = id;
+        $scope.id1 = id + 1;
+        $scope.id2 = id + 2;
     }
-});
-
-app.directive('ybheader', function() {
-    return {
-        restrict: 'E',
-        templateUrl: 'iner.html',
-        bindings:{links:'='},
-        controllerAs:"ybheader",
-        controller:function($scope,$rootScope,$state){
-            console.log("ybheader !");
-            $scope.name="chneyuanbao";
-            $rootScope.name="xxhsl";
-        }
-    };
-});
-app.controller('mycontroller',function($scope) {
-    $scope.title = '点击展开';
-    $scope.text = '这里是内部的内容。';
-    $scope.expanders = [{
-        title : 'Click me to expand',
-        text : 'Hi there folks, I am the content that was hidden but is now shown.'
-    }, {
-        title : 'Click this',
-        text : 'I am even better text than you have seen previously'
-    }, {
-        title : 'Test',
-        text : 'haha'
-    }];
+}
+myApp.controller("mycontroller",moban);
+myApp.config(['$stateProvider', '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider) {
+        $stateProvider.state("moban",{
+            url:"/index",
+            abstract:true,
+            controller:moban,
+            controllerAs:'moban',
+            templateUrl:"moban.html"
+        }).state("toPage",{
+            url:"toPage",///{id} 都可以，{id}的方式uri会发生变化
+            params:{id:null},
+            controller:mobanf,
+            controllerAs:"mobanf"
+        });
+        $urlRouterProvider.otherwise("/toPage");
+    }
+]).component('myApp', {
+    template: '<div class="app"><div ui-view>1231</div></div>',
+    restrict: 'E'
 });

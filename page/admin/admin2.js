@@ -99,7 +99,7 @@ var defaultController = function ($scope, $http, $stateParams,$rootScope,$state)
         //$state.go("home.one.two",{id:id});//二级目录
         //$state.go("home.one.two",{id:id,id1:id+1});//一次访问,跳三级目录
         //$state.go("home.xxx.two",{id:id,id1:id+1});//一次访问 不可用
-        //$state.go("home.two",{id:id,id1:id+1});//两级目录
+        $state.go("home.two",{id:id,id1:id+1});//两级目录
     });
 };
 var mk1Controller = function($scope, $http){
@@ -138,7 +138,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
             template:"<h1>靖康耻犹未雪，臣子恨何时灭，<br>驾长车踏破贺兰山缺。壮士饥餐胡虏肉，<br>笑谈渴饮匈奴血。待从头，收拾旧山河，朝天阙。</h1>"
         }).state("mydefine",{
             url:"/xxx",
-            template:"<h1>hehe，<br>heihei，<br>如何使用路径参数，请在点击树节点的时候观察uri的路径变化！</h1>"
+            template:"<h1>hehe，<br>heihei，<br>如何使用路径参数，请在点击树节点的时候观察uri的路径变化！问题：为什么多级路径对应的controller不能正常执行！？</h1>"
         });
         $urlRouterProvider.otherwise("/home");
     }
