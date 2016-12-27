@@ -17,44 +17,10 @@
 <section>
     <div class="am-g am-g-fixed border">
         <div class="am-u-sm-2" >
-            <div class="am-panel-group" id="accordion">
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd">
-                        <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
-                            ...
-                        </h4>
-                    </div>
-                    <div id="do-not-say-1" class="am-panel-collapse am-collapse am-in">
-                        <div class="am-panel-bd">
-                            ...
-                        </div>
-                    </div>
-                </div>
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd">
-                        <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
-                            ...
-                        </h4>
-                    </div>
-                    <div id="do-not-say-2" class="am-panel-collapse am-collapse">
-                        <div class="am-panel-bd">
-                            ...
-                        </div>
-                    </div>
-                </div>
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd">
-                        <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-3'}">...</h4>
-                    </div>
-                    <div id="do-not-say-3" class="am-panel-collapse am-collapse">
-                        <div class="am-panel-bd">
-                            ...
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <mymenu></mymenu>
         </div>
         <div class="am-u-sm-8" >
+            <div ui-view="gg"></div>
             <div ui-view>
                 <div class="am-g  border">
                     <div class="am-u-sm-12" > <img ng-src="../../image/my/{{id}}.jpg" width="100%"/></div>
@@ -63,9 +29,10 @@
                 </div>
             </div>
         </div>
-        <div class="am-u-sm-2" > &nbsp;1231</div>
+        <div class="am-u-sm-2" > <img src="../../image/my/5.jpg" width="120rem" height="90rem"/>
+          <b>哈尼</b>
+        </div>
     </div>
-
 </section>
 <div class="am-g am-g-fixed border">
     <div class="am-u-sm-12" > &nbsp;</div>
@@ -86,5 +53,6 @@
 <script type="text/javascript" src="../../component/footer/index.js"></script>
 <script type="text/javascript" src="nav/index.js"></script>
 <script type="text/javascript" src="../../component/common.js"></script>
+<script type="text/javascript" src="menu/index.js"></script>
 <script type="text/javascript" src="moban.js"></script>
 </html>
