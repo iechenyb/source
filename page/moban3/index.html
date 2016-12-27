@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>ngView例子</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+    <link href="../../cdn/amazeui.min.css" rel="stylesheet">
+    <style>
+        .c {
+            border: 1px solid black;
+            width: 250px;
+        }
+
+        .c>.title {
+            background-color: orange;
+            color: white;
+            padding: .1em .3em;
+            cursor: pointer;
+        }
+
+        .c>.body {
+            padding: .1em .3em;
+        }
+
+    </style>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="angular-ui-router.min.js"></script>
+</head>
+<body ng-controller="mycontroller">
+<hr>
+<!--<myheader links="mobanf.links"></myheader>
+<hr>-->
+<ybheader></ybheader>
+<directive1>
+    <span>原有内容</span>
+</directive1>
+<directive>
+    <span>原有内容</span>
+</directive>
+<!--<myheader links="links"></myheader>-->
+<hr>
+<section>
+    <div ui-view>
+    <center>主工作区
+        <expander class='c' expander-title='title'>
+            {{text}}
+        </expander>
+        <hr>
+        <accordion>
+            <expander1 class='c' ng-repeat='expander in expanders' expander-title='expander.title'>
+                {{expander.text}}
+            </expander1>
+        </accordion>
+    </center>
+    </div>
+</section>
+<hr>
+<!--<myfooter></myfooter>-->
+<hr>
+<!--<myfooter></myfooter>http://blog.csdn.net/u010147288/article/details/51613984
+<hr>-->
+<script type="text/javascript" src="moban.js"></script>
+<script>
+
+</script>
+</body>
+</html>

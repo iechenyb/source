@@ -1,9 +1,11 @@
-<div class="am-g am-g-fixed">
+<style>
+</style>
+<div class="am-g am-g-fixed border">
     <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
             <li ng-repeat="link in myheader.links|orderBy as x" ui-sref-active="am-active">
                 <a ng-if="link.uisref" ui-sref="toPage({id:{{link.uisref}}})">{{link.name}}</a>
-                <a ng-if="link.href" href="javascript:void(0);" ng-click="toPage(link.href)">{{link.name}}</a>
+                <a ng-if="link.href" href="javascript:void(0);" ng-click="toPage(link.href)" ng-onmouseover="toPage({{link.href}})">{{link.name}}</a>
             </li>
         </ul>
     </div>

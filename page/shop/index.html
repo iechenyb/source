@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>兔吧</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
+    <link ref="stylesheet" href="../../cdn/amazeui.min.css"/>
+    <link href="../../cdn/amazeui.min.css" rel="stylesheet">
+</head>
+<body ng-controller="mycontroller">
+<section>
+<mytop></mytop>
+<myheader links="links"></myheader>
+</section>
+<section>
+    <div class="am-g am-g-fixed border">
+        <div class="am-u-sm-2" >
+            <div class="am-panel-group" id="accordion">
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd">
+                        <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
+                            ...
+                        </h4>
+                    </div>
+                    <div id="do-not-say-1" class="am-panel-collapse am-collapse am-in">
+                        <div class="am-panel-bd">
+                            ...
+                        </div>
+                    </div>
+                </div>
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd">
+                        <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
+                            ...
+                        </h4>
+                    </div>
+                    <div id="do-not-say-2" class="am-panel-collapse am-collapse">
+                        <div class="am-panel-bd">
+                            ...
+                        </div>
+                    </div>
+                </div>
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd">
+                        <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-3'}">...</h4>
+                    </div>
+                    <div id="do-not-say-3" class="am-panel-collapse am-collapse">
+                        <div class="am-panel-bd">
+                            ...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-sm-8" >
+            <div ui-view>
+                <div class="am-g  border">
+                    <div class="am-u-sm-12" > <img ng-src="../../image/my/{{id}}.jpg" width="100%"/></div>
+                    <div class="am-u-sm-12 border"><img ng-src="../../image/my/{{id1}}.jpg" width="100%"/></div>
+                    <div class="am-u-sm-12 border"><img ng-src="../../image/my/{{id2}}.jpg" width="100%"/></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-sm-2" > &nbsp;1231</div>
+    </div>
+
+</section>
+<div class="am-g am-g-fixed border">
+    <div class="am-u-sm-12" > &nbsp;</div>
+    <button data-am-smooth-scroll class="am-btn am-btn-success" style="margin-left:1200px">滚动到顶部</button>
+</div>
+<myfooter></myfooter>
+</body>
+<script src="../../cdn/jquery.min.js"></script>
+<script src="../../cdn/jquery.fullPage.min.js"></script>
+<script src="../../cdn/jquery.webui-popover.min.js"></script>
+<script type="text/javascript" src="../../cdn/amazeui.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular.min.js"></script><!--1.5.7-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+<!--<script type="application/x-javascript" src="https://rawgit.com/iechenyb/source/master/cdn/angular-ui-router.min.js"></script>-->
+<script type="text/javascript" src="../../cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+<script src="../../cdn/amazeui.tree.js"></script>
+<script type="text/javascript" src="../../component/header/index.js"></script>
+<script type="text/javascript" src="../../component/footer/index.js"></script>
+<script type="text/javascript" src="nav/index.js"></script>
+<script type="text/javascript" src="../../component/common.js"></script>
+<script type="text/javascript" src="moban.js"></script>
+</html>

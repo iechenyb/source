@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>ngView例子</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
+    <link href="../../cdn/amazeui.min.css" rel="stylesheet">
+</head>
+<body ng-controller="mycontroller">
+<hr>
+menus={{links}}-->
+<myheader links="links"></myheader>
+<hr>
+    <div ui-view>
+        <center>主工作区：{{data}}
+            <section>
+            <div><img ng-src="../../image/my/{{id}}.jpg"/></div>
+            </section>
+            <section>
+            <div><img ng-src="../../image/my/{{id1}}.jpg"/></div>
+            </section>
+            <section>
+            <div><img ng-src="../../image/my/{{id2}}.jpg"/></div>
+            </section>
+        </center>
+    </div>
+<hr>
+<myfooter></myfooter>
+<hr>
+</body>
+<script src="../../cdn/jquery.min.js"></script>
+<script src="../../cdn/jquery.fullPage.min.js"></script>
+<script src="../../cdn/jquery.webui-popover.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular.min.js"></script><!--1.5.7-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="../../cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+<script src="../../cdn/amazeui.tree.js"></script>
+<script type="text/javascript" src="../../component/header/index.js"></script>
+<script type="text/javascript" src="../../component/footer/index.js"></script>
+<script type="text/javascript" src="../../component/common.js"></script>
+<script type="text/javascript" src="moban.js"></script>
+</html>
