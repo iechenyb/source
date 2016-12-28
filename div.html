@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>div重叠 叠加实例 未排层叠顺序 www.divcss5.com</title>
+    <style>
+        .div-relative{position:relative; color:#000; border:1px solid #000; width:500px; height:800px}
+        .div-a{ position:absolute; left:30px; top:30px; background:gray; width:400px; height:200px}
+        /* css注释说明： 背景为红色 */
+        .div-b{ position:absolute; left:30px; top:60px; background:#FF0; width:400px; height:200px;
+            display: none;}
+        /* 背景为黄色 */
+        .div-c{ position:absolute; left:80px; top:380px; background:#00F; width:300px; height:300px;overflow: hidden}
+        /* DIV背景颜色为蓝色 */
+    </style>
+</head>
+<body>
+<div class="div-relative">
+    <div class="div-a" >
+        <button onclick="toggle(true)" onmousedown="toggle(true)" onmouseover="toggle(true)" onmouseout=""> 医药类</button>
+        <button onclick="toggle(true)" onmousedown="toggle(true)" onmouseover="toggle(true)" onmouseout=""> 骑行类</button>
+        <button onclick="toggle(true)" onmousedown="toggle(true)" onmouseover="toggle(true)" onmouseout=""> 食品类</button>
+        <button onclick="toggle(true)" onmousedown="toggle(true)" onmouseover="toggle(true)" onmouseout=""> 衣服类</button>
+    </div>
+    <div class="div-b" id="menu" onmouseout="toggle(false)">我背景为黄色</div>
+    <div class="div-c">我背景为蓝色</div>
+</div>
+<div class="div-c1">我背景为蓝色</div>
+<button onclick="toggle(true)"> 显示菜单</button>
+<button onclick="toggle(false)"> 隐藏菜单</button>
+<script type="text/javascript">
+    function toggle(v){
+        if(!v){
+            document.getElementById("menu").style.display="none";
+        }else{
+            document.getElementById("menu").style.display="block";
+        }
+    }
+</script>
+</body>
+</html>

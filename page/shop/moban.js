@@ -23,7 +23,10 @@ var mobanf = function ($scope,$state) {
     var id = $state.params.id;
     console.log("mobanf id="+id);
     $scope.name="chenyb"+id;
-   /* if(id==null){
+    $scope.hidden = function(){
+        $('#menu').css("display","none");
+    }
+    if(id==null){
         id=1;
     }else{
         id=parseInt(id);
@@ -36,7 +39,7 @@ var mobanf = function ($scope,$state) {
         $scope.id = id;
         $scope.id1 = id + 1;
         $scope.id2 = id + 2;
-    }*/
+    }
 }
 myApp.controller("mycontroller",moban);
 myApp.config(['$stateProvider', '$urlRouterProvider',
