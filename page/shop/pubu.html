@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="http://s.amazeui.org/assets/plugin/css/app.min.css">
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="http://cdn.amazeui.org/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://cdn.amazeui.org/amazeui/2.7.0/js/amazeui.min.js"></script>
+    <!--<![endif]-->
+    <link rel="stylesheet" href="css/pubu.css"/>
+</head>
+<body>
+<div class="msry-item">
+    <section class="am-panel am-panel-default">
+        <header class="am-panel-hd">
+            <h3 class="am-panel-title">{{title}}</h3>
+        </header>
+        <div class="am-panel-bd">
+            开始：{{begin_time}} <br/>
+            结束： {{begin_time}}<br/>
+            地点：{{address}} <br/>
+            类型： {{category_name}} <br/>
+            <a href="{{alt}}" target="_blank">查看详情 &rarrlp;</a>
+        </div>
+        <div class="msry-item">
+            <section class="am-panel am-panel-default">
+                <header class="am-panel-hd">
+                    <h3 class="am-panel-title">{{title}}</h3>
+                </header>
+                <div class="am-panel-bd">
+                    开始：{{begin_time}} <br/>
+                    结束： {{begin_time}}<br/>
+                    地点：{{address}} <br/>
+                    类型： {{category_name}} <br/>
+                    <a href="{{alt}}" target="_blank">查看详情 &rarrlp;</a>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+<div id="load-more"><button class="am-btn am-btn-primary">载入更多</button></div>
+<script type="text/x-handlebars-template" id="tpl-list">
+    {{#each events}}
+    <div class="msry-item">
+        <section class="am-panel am-panel-default">
+            <header class="am-panel-hd">
+                <h3 class="am-panel-title">{{title}}</h3>
+            </header>
+            <div class="am-panel-bd">
+                开始：{{begin_time}} <br/>
+                结束： {{begin_time}}<br/>
+                地点：{{address}} <br/>
+                类型： {{category_name}} <br/>
+                <a href="{{alt}}" target="_blank">查看详情 &rarrlp;</a>
+            </div>
+        </section>
+    </div>
+    {{/each}}
+</script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/main.js"></script>
+<script src="http://amazeui.github.io/masonry/bundle.js"></script>
+<script src="http://s.amazeui.org/assets/plugin/js/app.min.js"></script>
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
