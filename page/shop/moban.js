@@ -2,7 +2,7 @@
  * Created by DHUser on 2016/12/14.
  */
 var menu=["秒杀","优惠券","闪购","拍卖","服装城","兔吧超市","生鲜","全球购","兔吧金融"];
-var myApp = angular.module("myApp",["ui.router","myfooter","myheader","mytop","myInterceptor","mymenu","mygg"]);
+var myApp = angular.module("myApp",["ui.router","myfooter","myheader","mytop","myInterceptor","mymenu","mygg","mypubu","mylist"]);
 var moban = function ($scope, $http, $stateParams,$rootScope,$state) {
     this.links=[];
     $scope.links=[];

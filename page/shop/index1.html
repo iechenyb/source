@@ -9,10 +9,10 @@
     <link ref="stylesheet" href="../../cdn/amazeui.min.css"/>
     <link href="../../cdn/amazeui.min.css" rel="stylesheet">
     <style>
-        .div-relative{position:relative; color:#000; border:0px solid #000; width:100%; height:380px}
-        .div-a{ position:absolute; left:0px; top:0px; background:white; width:100%; height:354px;}
+        .div-relative{position:relative; color:#000; border:0px solid #000; width:100%; height:480px}
+        .div-a{ position:absolute; left:0px; top:0px; background:white; width:100%; height:454px;}
         /* css注释说明： 背景为红色 */
-        .div-b{ position:absolute; left:0px; top:0px; background:white; width:100%; height:380px;z-index: 99;
+        .div-b{ position:absolute; left:0px; top:0px; background:white; width:100%; height:480px;z-index: 99;
             display: block;}
         /* 背景为黄色 */
         .div-c{ position:absolute; left:80px; top:480px; background:white; width:100%; height:300px}
@@ -25,17 +25,20 @@
 <myheader links="links"></myheader>
 </section>
 <section>
-    <div class="am-g am-g-fixed border">
-        <div class="am-u-sm-2" ><mymenu></mymenu></div>
-        <div class="am-u-sm-8 border" >
+    <div class="am-g  border">
+        <div class="am-u-sm-2" >&nbsp;</div>
+        <div class="am-u-sm-2" style="margin-right:0px;" ><mymenu></mymenu></div>
+        <div class="am-u-sm-5 border" style="margin-left:0px;">
            <!--<mygg></mygg>-->
             <div class="div-relative">
                 <div class="am-slider am-slider-default div-a" data-am-flexslider id="demo-slider-0">
                     <ul class="am-slides">
-                        <li><a href="http://www.baidu.com" target="_blank"><img src="https://img.alicdn.com/tps/TB1TtDdOVXXXXacXVXXXXXXXXXX-520-280.jpg_.webp"  /></a></li>
-                        <li><img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
-                        <li><img ng-src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" height="354px"/></li>
-                        <li><img ng-src="../../image/my/{{id1}}.jpg" height="354px" /></li>
+                        <!--<li><a href="http://www.baidu.com" target="_blank"><img src="https://img.alicdn.com/tps/TB1TtDdOVXXXXacXVXXXXXXXXXX-520-280.jpg_.webp"  /></a></li>
+                        <li><img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>-->
+                        <li><img ng-src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" height="454px"/></li>
+                        <li><img ng-src="../../image/my/{{id1}}.jpg" height="454px" /></li>
+                        <li><img ng-src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" height="454px"/></li>
+                        <li><img ng-src="../../image/my/{{id1}}.jpg" height="454px" /></li>
                     </ul>
                 </div>
                 <div  ui-view="gg" id='menu' class="div-b" ng-mouseleave="hidden()">
@@ -50,28 +53,33 @@
                     </p>
                 </div>
             </div>-->
-            <div style="text-align: left;font-family: 'Adobe 黑体 Std R'">热门商品</div>
+            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>热门商品</b></div>
             <div>
                <mylist></mylist>
             </div>
-            <div style="text-align: left;font-family: 'Adobe 黑体 Std R'">秒杀场</div>
+            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>秒杀场</b></div>
             <div>
                 <mylist></mylist>
             </div>
-            <div style="text-align: left;font-family: 'Adobe 黑体 Std R'">销量冠军</div>
+            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>销量冠军</b></div>
+            <div>
+                <mylist></mylist>
+            </div>
+            <mypubu></mypubu><!--瀑布式展示商品-->
+            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>最近浏览</b></div>
             <div>
                 <mylist></mylist>
             </div>
      </div>
-        <div class="am-u-sm-2" > <img src="../../image/my/5.jpg" width="120rem" height="90rem"/>
+        <div class="am-u-sm-2" > <img src="../../image/my/5.jpg" width="120rem" height="90rem"/><br>
           <b>哈尼</b>
         </div>
+        <div class="am-u-sm-1" >&nbsp;</div>
     </div>
-    <mypubu></mypubu><!--瀑布式展示商品-->
 </section>
 <div class="am-g am-g-fixed border">
     <div class="am-u-sm-12" > &nbsp;</div>
-    <button data-am-smooth-scroll class="am-btn am-btn-success" style="margin-left:1200px;margin-top: 320px;">滚动到顶部</button>
+    <button data-am-smooth-scroll class="am-btn am-btn-success" style="position:fixed;bottom:0;">滚动到顶部</button>
 </div>
 <!--侧边菜单代码放到瀑布展示商品控件-->
 <myfooter></myfooter>
