@@ -41,7 +41,7 @@
     </style>
 </head>
 <body ng-app="app">
-<div class="dowebok-hd">
+<!--<div class="dowebok-hd">
     <div class="inner">
         <h1><a href="">兔吧</a></h1>
         <ul class="nav">
@@ -52,10 +52,10 @@
             <li><a href="#page5">常见问题</a></li>
         </ul>
     </div>
-</div>
+</div>-->
 <div id="fullpage">
-    <ul id="menu1">
-        <li data-menuanchor="page1" class="active"><a href="#page1">TOP</a></li>
+    <ul id="menu">
+        <li data-menuanchor="page1" class="active"><a href="#page1" alt="hhaha">TOP</a></li>
         <li data-menuanchor="page2"><a href="#page2">科技卷</a></li>
         <li data-menuanchor="page3"><a href="#page3">人物卷</a></li>
         <li data-menuanchor="page4"><a href="#page4">社会卷</a></li>
@@ -116,15 +116,16 @@
 <script src="cdn/anijs-min.js"></script>
 <script>
     //http://www.dowebok.com/77.html
-    $('#fullpage').fullpage({
+    /*$('#fullpage').fullpage({
         anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
         afterLoad: function (anchorLink, index) {
             if (index == 2) {
             }
         },
         'navigation': true,
-    });//默认的导航
-    /*$('#fullpage').fullpage({
+    });//默认的导航*/
+    //http://www.dowebok.com/demo/2014/77/
+    $('#fullpage').fullpage({
         afterLoad: function (anchorLink, index) {
             if (index == 2) {
             }
@@ -205,7 +206,7 @@
                 $('.zanzhu-con a').fadeOut(1000);
             }
         }
-    });*/
+    });
 </script>
 </body>
 </html>
