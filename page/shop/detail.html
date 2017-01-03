@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Amaze UI Magnifier 使用演示 | Amaze UI 插件</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png"
+          href="http://s.amazeui.org/assets/2.x/i/favicon.png">
+    <link rel="stylesheet"
+          href="../../cdn/amazeui.min.css">
+    <link rel="stylesheet" href="http://s.amazeui.org/assets/plugin/css/app.min.css">
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="../../cdn/jquery.min.js"></script>
+    <script src="../../cdn/amazeui.min.js"></script>
+    <!--<![endif]-->
+    <link rel="stylesheet" href="../../cdn/amazeui.magnifier.min.css"/>
+</head>
+<body class="am-plugin1">
+<section class="amp-main">
+    <div class="am-container amp-content">
+        <h1>商品详情信息查看</h1>
+        <figure class="am-magnifier">
+        <img width="300" height="300" src="images/bing-square.jpg" alt="Bing square image" data-am-magnify>
+        <div data-am-shape="square"></div>
+        <div class="am-margin-left-sm">
+            <img width="900" height="900" src="images/bing-square.jpg" alt="Bing square image">
+        </div>
+       </figure><br>
+
+        <figure class="am-magnifier">
+        <img id="small-image" width="480" height="270" src="images/bing-rect.jpg" alt="Bing rect image">
+        <div></div>
+        <div class="am-margin-left-sm">
+            <img width="1920" height="1080" src="images/bing-rect.jpg" alt="Bing rect image">
+        </div>
+      </figure>
+    </div>
+</section>
+<script src="../../cdn/amazeui.magnifier.min.js"></script>
+<script>
+    $(function() {
+        $('#small-image').magnify({
+            shape: 'rect',
+            width: 120
+        });
+    });
+</script>
+</body>
+</html>
