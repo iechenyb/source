@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="dist/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/jquery.webui-popover.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3"><a href="#" class="show-pop btn btn-danger" data-placement="bottom-left" >pop bottom-left</a></div>
+    <div class="col-md-3"><a href="#" class="show-pop btn btn-danger" data-placement="bottom">pop bottom</a></div>
+    <div class="col-md-3"><a href="#" class="show-pop btn btn-danger" data-placement="bottom-right" >pop bottom-right</a></div>
+</div>
+<section class="container demo-container">
+    <div class="row">
+        <div class="col-md-5"><a href="#" class="show-pop btn btn-success">auto detect</a></div>
+        <div class="col-md-2"><a href="#" class="show-pop btn btn-success">auto detect</a></div>
+        <div class="col-md-5"><a href="#" class="show-pop btn btn-success pull-right" data-placement="auto">auto detect</a></div>
+    </div>
+
+</section>
+</body>
+<script src="../../cdn/jquery.min.js"></script>
+<script src="dist/jquery.webui-popover.min.js"></script>
+<script>
+    (function(){
+        var settings = {
+            trigger:'hover',
+            title:'Pop Title',
+            content:'<p>This is webui popover demo.</p><p>just enjoy it and have fun!<img src="../../image/my/1.jpg" width="280px" height="180px"/> </p>',
+            width:300,
+            multi:false,
+            closeable:false,
+            style:'',
+            padding:false
+        };
+        function initPopover () {
+            $('a.show-pop').webuiPopover('destroy').webuiPopover(settings);
+            console.log("iniit");
+        }
+        initPopover();
+    })();
+</script>
+</html>
