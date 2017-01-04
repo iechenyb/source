@@ -8,81 +8,133 @@
     <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
     <link ref="stylesheet" href="../../cdn/amazeui.min.css"/>
     <link href="../../cdn/amazeui.min.css" rel="stylesheet">
+    <link href="../../cdn/jquery.fullPage.min.css" rel="stylesheet">
     <style>
-        .div-relative{position:relative; color:#000; border:0px solid #000; width:100%; height:480px}
-        .div-a{ position:absolute; left:0px; top:0px; background:white; width:100%; height:454px;}
+        .div-relative{position:relative; color:#000; border:0px solid #000; width:100%; height:380px}
+        .div-a{ position:absolute; left:0px; top:0px; background:white; width:100%; height:354px;}
         /* css注释说明： 背景为红色 */
-        .div-b{ position:absolute; left:0px; top:0px; background:white; width:100%; height:480px;z-index: 99;
+        .div-b{ position:absolute; left:0px; top:0px; background:white; width:100%; height:380px;z-index: 99;
             display: block;}
         /* 背景为黄色 */
         .div-c{ position:absolute; left:80px; top:480px; background:white; width:100%; height:300px}
         /* DIV背景颜色为蓝色 */
+
+        #nav { position: fixed; right: 20px; top: 50%; width: 90px; margin: -160px 0 0; padding: 0; list-style-type: none; z-index: 70;}
+        #nav li { margin-top: 10px; font: 14px "Microsoft Yahei";}
+        #nav a { display: block; padding: 10px 0; background-color: #fff; color: #0074EA; text-align: center; text-decoration: none;}
+        #nav .active a { color: #fff; background-color: rgb(0, 116, 234);}
+
     </style>
 </head>
 <body ng-controller="mycontroller">
-<section>
-<mytop></mytop>
-<myheader links="links"></myheader>
-</section>
-<section>
+<div id="fullpage">
+    <ul id="nav">
+        <li data-menuanchor="page1" class="active"><a href="#page1" alt="hhaha">TOP</a></li>
+        <li data-menuanchor="page2"><a href="#page2">热销榜</a></li>
+        <li data-menuanchor="page3"><a href="#page3">推荐榜</a></li>
+        <li data-menuanchor="page4"><a href="#page4">最近浏览</a></li>
+        <li data-menuanchor="page5"><a href="#page5">秒杀场</a></li>
+        <li data-menuanchor="page6"><a href="#page6">活动专场</a></li>
+    </ul>
+<div class="section" style="overflow: auto" >
+    <mytop></mytop>
+    <myheader links="links"></myheader>
     <div class="am-g  border">
         <div class="am-u-sm-2" >&nbsp;</div>
-        <div class="am-u-sm-2" style="margin-right:0px;" ><mymenu></mymenu></div>
-        <div class="am-u-sm-5 border" style="margin-left:0px;">
+        <div class="am-u-sm-2" style="margin-right:0px;border:0px solid red;" >
+            <mymenu></mymenu>
+        </div>
+        <div class="am-u-sm-5 border" style="margin-left:0px;border:0px solid black;">
            <!--<mygg></mygg>-->
             <div class="div-relative">
                 <div class="am-slider am-slider-default div-a" data-am-flexslider id="demo-slider-0">
                     <ul class="am-slides">
                         <!--<li><a href="http://www.baidu.com" target="_blank"><img src="https://img.alicdn.com/tps/TB1TtDdOVXXXXacXVXXXXXXXXXX-520-280.jpg_.webp"  /></a></li>
                         <li><img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>-->
-                        <li><img ng-src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" height="454px"/></li>
-                        <li><img ng-src="../../image/my/{{id1}}.jpg" height="454px" /></li>
-                        <li><img ng-src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" height="454px"/></li>
-                        <li><img ng-src="../../image/my/{{id1}}.jpg" height="454px" /></li>
+                        <li><img ng-src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" height="354px"/></li>
+                        <li><img ng-src="../../image/my/{{id1}}.jpg" height="354px" /></li>
+                        <li><img ng-src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" height="354px"/></li>
+                        <li><img ng-src="../../image/my/{{id1}}.jpg" height="354px" /></li>
                     </ul>
                 </div>
                 <div  ui-view="gg" id='menu' class="div-b" ng-mouseleave="hidden()">
                 </div>
             </div>
-           <!-- <div ui-view >
-              <div class=" border">
-                    <div  > <img ng-src="../../image/my/{{id}}.jpg" width="100%"/></div>
-                    <p>
-                        <img class="lazy am-img-thumbnail" ng-src="../../image/my/{{id2}}.jpg"
-                            width="765" height="574" alt="BMW M1 Hood">
-                    </p>
-                </div>
-            </div>-->
-            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>热门商品</b></div>
-            <div>
-               <mylist></mylist>
-            </div>
-            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>秒杀场</b></div>
-            <div>
-                <mylist></mylist>
-            </div>
-            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>销量冠军</b></div>
-            <div>
-                <mylist></mylist>
-            </div>
-            <mypubu></mypubu><!--瀑布式展示商品-->
-            <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray"><b>最近浏览</b></div>
-            <div>
-                <mylist></mylist>
-            </div>
-     </div>
-        <div class="am-u-sm-2" > <img src="../../image/my/5.jpg" width="120rem" height="90rem"/><br>
-          <b>哈尼</b>
+            <img ng-src="../../image/my/{{id1}}.jpg" width="100%" height="300px"/>
+            <!--<div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: darkgray;margin:0px;padding:0px;"><b>推荐商品</b></div>
+            <mylist></mylist>-->
+       </div>
+        <div class="am-u-sm-2" style="border:0px solid greenyellow;">
+
         </div>
         <div class="am-u-sm-1" >&nbsp;</div>
     </div>
-</section>
+</div>
+    <div class="section"  style="background-color: white;overflow: scroll">
+        <div class="am-g  border ">
+            <div class="am-u-sm-4" >&nbsp;</div>
+            <div class="am-u-sm-5">
+                <div  style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: green;width: 100%"><b>热销榜</b></div>
+                <mylist></mylist>
+                <mylist></mylist>
+                <mylist></mylist>
+                <mylist></mylist>
+                <mylist></mylist>
+                <mylist></mylist>
+                <mylist></mylist>
+                <mylist></mylist>
+            </div>
+            <div class="am-u-sm-3" >&nbsp;</div>
+        </div>
+    </div>
+    <div class="section" style="background-color: white;overflow: auto">
+        <div class="am-g  border ">
+            <div class="am-u-sm-4" >&nbsp;</div>
+            <div class="am-u-sm-5">
+                <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: green"><b>推荐榜</b></div>
+                <mylist></mylist>
+            </div>
+            <div class="am-u-sm-3" >&nbsp;</div>
+        </div>
+    </div>
+    <div class="section" style="background-color: white;overflow: auto">
+        <div class="am-g  border ">
+            <div class="am-u-sm-4" >&nbsp;</div>
+            <div class="am-u-sm-5">
+                <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: green"><b>最近浏览</b></div>
+                <mylist></mylist>
+            </div>
+            <div class="am-u-sm-3" >&nbsp;</div>
+        </div>
+    </div>
+    <div class="section" style="background-color: white;overflow: auto">
+        <div class="am-g  border ">
+            <div class="am-u-sm-4" >&nbsp;</div>
+            <div class="am-u-sm-5">
+                <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: green"><b>秒杀场</b></div>
+                <mylist></mylist>
+            </div>
+            <div class="am-u-sm-3" >&nbsp;</div>
+        </div>
+    </div>
+    <div class="section" style="background-color: white;overflow: auto">
+        <div class="am-g  border ">
+            <div class="am-u-sm-4" >&nbsp;</div>
+            <div class="am-u-sm-5">
+                <div style="text-align: left;font-family: 'Adobe 黑体 Std R';background-color: green"><b>活动专场</b></div>
+                <mylist></mylist>
+                <mypubu></mypubu>
+            </div>
+            <div class="am-u-sm-3" >&nbsp;</div>
+        </div>
+        <myfooter></myfooter>
+    </div>
+</div>
 <div class="am-g am-g-fixed border">
     <div class="am-u-sm-12" > &nbsp;</div>
-    <button data-am-smooth-scroll class="am-btn am-btn-success" style="position:fixed;bottom:0;">滚动到顶部</button>
+    <button data-am-smooth-scroll class="am-btn am-btn-success" style="position:fixed;">滚动到顶部</button>
 </div>
 <!--侧边菜单代码放到瀑布展示商品控件-->
-<myfooter></myfooter>
 </body>
 <script src="../../cdn/jquery.min.js"></script>
 <script src="../../cdn/amazeui.lazyload.js"></script>
@@ -103,4 +155,99 @@
 <script type="text/javascript" src="list/index.js"></script>
 <script type="text/javascript" src="ggwindow/index.js"></script>
 <script type="text/javascript" src="moban.js"></script>
+<script>
+    //http://www.dowebok.com/77.html
+    /*$('#fullpage').fullpage({
+     anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+     afterLoad: function (anchorLink, index) {
+     if (index == 2) {
+     }
+     },
+     'navigation': true,
+     });//默认的导航*/
+    //http://www.dowebok.com/demo/2014/77/
+    $('#fullpage').fullpage({
+        afterLoad: function (anchorLink, index) {
+            console.log(index);
+            if (index == 2) {
+            }
+        },
+        slidesColor: ['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9', '#F3F3F3', '#F9F3DC'],
+        //'navigation': false,
+        anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+        menu: '#nav',
+        navigationPosition: 'right',
+        verticalCentered: false,
+        css3: true,
+        navigationTooltips: ['tip1', 'tip2', 'tip3', 'tip4',"tip5","tip6"],
+        afterRender: function(){
+            $('.screen-main span').each(function(){
+                var $rel = $(this).attr('rel');
+                var $arr = $rel.split(',');
+                $(this).animate({
+                    left: $arr[2] + 'px',
+                    top: $arr[3] + 'px'
+                }, 500);
+            });
+            $('.inner a').each(function(){
+                var $rel = $(this).attr('rel');
+                var $arr = $rel.split(',');
+                $(this).animate({
+                    left: $arr[0] + 'px',
+                    top: $arr[1] + 'px'
+                }, 500);
+            });
+        },
+        afterLoad: function(anchorLink, index){
+            if(index == 1){
+                $('.screen-main span').each(function(){
+                    var $rel = $(this).attr('rel');
+                    var $arr = $rel.split(',');
+                    $(this).animate({
+                        left: $arr[2] + 'px',
+                        top: $arr[3] + 'px'
+                    }, 500);
+                });
+            }
+            if(index == 2 || index == 3 || index == 4 || index == 5){
+                $('.inner').eq(index - 2).find('a').each(function(){
+                    var $rel = $(this).attr('rel');
+                    var $arr = $rel.split(',');
+                    $(this).animate({
+                        left: $arr[2] + 'px',
+                        top: $arr[3] + 'px'
+                    }, 500);
+                });
+            }
+            if(index == 6){
+                $('.zanzhu-con a').fadeIn(1000);
+            }
+        },
+        onLeave: function(index, direction){
+            if(index == 1){
+                $('.screen-main span').each(function(){
+                    var $rel = $(this).attr('rel');
+                    var $arr = $rel.split(',');
+                    $(this).animate({
+                        left: $arr[0] + 'px',
+                        top: $arr[1] + 'px'
+                    }, 500);
+                });
+            }
+            if(index == 2 || index == 3 || index == 4 || index == 5){
+                $('.inner').eq(index - 2).find('a').each(function(){
+                    var $rel = $(this).attr('rel');
+                    var $arr = $rel.split(',');
+                    $(this).animate({
+                        left: $arr[0] + 'px',
+                        top: $arr[1] + 'px'
+                    }, 500);
+                });
+            }
+            if(index == 6){
+                $('.zanzhu-con a').fadeOut(1000);
+            }
+        }
+    });
+</script>
 </html>
