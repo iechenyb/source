@@ -20,7 +20,7 @@
   //http://localhost:3000/source1/page/shop/menu/index.html
   var list = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/source1/page/shop/list/index.html',
+    templateUrl: 'http://localhost:3000/web/page/shop/list/index.html',
     bindings:{links:'='},
     controllerAs:"listController",
     controller:listController

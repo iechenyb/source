@@ -6,7 +6,7 @@
   };
   var top = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/source1/page/shop/nav/index.html',
+    templateUrl: 'http://localhost:3000/web/page/shop/nav/index.html',
     bindings:{links:'='},
     controllerAs:"topController",
     controller:topController

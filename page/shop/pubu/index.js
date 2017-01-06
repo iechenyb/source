@@ -25,7 +25,7 @@
   //http://localhost:3000/source1/page/shop/menu/index.html
   var pubu = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/source1/page/shop/pubu/index.html',
+    templateUrl: 'http://localhost:3000/web/page/shop/pubu/index.html',
     bindings:{links:'='},
     controllerAs:"pubuController",
     controller:pubuController

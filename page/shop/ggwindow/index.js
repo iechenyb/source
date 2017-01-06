@@ -15,7 +15,7 @@
   //http://localhost:3000/source1/page/shop/menu/index.html
   var gg = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/source1/page/shop/ggwindow/index.html',
+    templateUrl: 'http://localhost:3000/web/page/shop/ggwindow/index.html',
     bindings:{links:'='},
     controllerAs:"ggController",
     controller:ggController

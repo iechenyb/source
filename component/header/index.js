@@ -8,7 +8,7 @@
   };
   var header = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/source1/component/header/index.html',
+    templateUrl: 'http://localhost:3000/web/component/header/index.html',
     bindings:{links:'='},
     controllerAs:"myheader",
     controller:headerController

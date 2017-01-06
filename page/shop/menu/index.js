@@ -15,7 +15,7 @@
   //http://localhost:3000/source1/page/shop/menu/index.html
   var menu = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/source1/page/shop/menu/index.html',
+    templateUrl: 'http://localhost:3000/web/page/shop/menu/index.html',
     bindings:{links:'='},
     controllerAs:"menuController",
     controller:menuController
