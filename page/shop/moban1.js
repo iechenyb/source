@@ -24,12 +24,22 @@ var moban = function ($scope, $http, $stateParams,$rootScope,$state) {
         $('#'+menuid).dropdown({justify: '#'+menuid});
     };
 };
-var mobanf = function ($scope,$state) {
+var mobanf = function ($scope,$state,$http) {
     var id = $state.params.id;
     $('img.lazy').lazyload({
         effect : 'fadeIn'
     });
     console.log("mobanf id="+id);
+    $http.get("xx/yy.html").success(function(data){
+        console.log("handle success!");
+    }).error(function(err){
+        alert("请求结束，处理异常！错误代码："+err.status+","+err.statusText);
+    });
+    $http.get("data.json").success(function(data){
+        console.log("handle success!"+data);
+    }).error(function(err){
+        console.log("请求结束，处理异常！错误代码："+err.status+","+err.statusText);
+    });
     $scope.name="chenyb"+id;
     //$('#menu').css("display","none");
     $scope.hidden = function(){
@@ -51,10 +61,11 @@ var mobanf = function ($scope,$state) {
     }
 }
 myApp.controller("mycontroller",moban);
-myApp.config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider,$httpProvider, $locationProvider) {
-        //$httpProvider.interceptors.push('myInterceptor');
-      /*  $locationProvider.html5Mode(true);
+myApp.config(['$stateProvider', '$urlRouterProvider',"$httpProvider","$locationProvider",
+    function($stateProvider, $urlRouterProvider,$httpProvider,$locationProvider) {
+       $httpProvider.interceptors.push('myInterceptor');
+        $locationProvider.html5Mode(false);
+      /*
         $httpProvider.interceptors.push('authInterceptor');*/
         $stateProvider.state("moban",{
             url:"/index",
@@ -80,7 +91,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
 ]).component('myApp', {
     template: '<div class="app"><div ui-view>1231</div></div>',
     restrict: 'E'
-}).factory('authInterceptor', function($rootScope, $q, $cookies, $injector) {
+})/*.factory('authInterceptor', function($rootScope, $q, $cookies, $injector) {
     var state;
     return {
         // Add authorization token to headers
@@ -106,4 +117,4 @@ myApp.config(['$stateProvider', '$urlRouterProvider',
             }
         }
     }
-    });
+    })*/;

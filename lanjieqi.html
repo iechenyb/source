@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="cdn/jquery.min.js"></script>
+    <script src="cdn/angular.min.js"></script>
+    <link rel="stylesheet" href="cdn/bootstrap.min.css">
+    <style type="text/css">
+        .mask-loading .loading-icon {
+            -webkit-animation: rotate 1s linear infinite;
+            -o-animation: rotate 1s linear infinite;
+            animation: rotate 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            margin: -20px 0 0 -20px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #37c3aa #37c3aa #fff #fff;
+            opacity: .9;
+            border-radius: 20px;
+        }
+
+        @-webkit-keyframes rotate{
+            0% {-webkit-transform:rotate(0)}
+            100% {-webkit-transform:rotate(360deg)}
+        }
+
+        @keyframes rotate{
+            0% {transform:rotate(0)}
+            100% {transform:rotate(360deg)}
+        }
+
+        .mask-loading {
+            position:fixed;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            background:0 0;
+            z-index:9999;
+        }
+    </style>
+   <!-- <script type="text/javascript" src="http://192.168.108.221:8085/cdn/angular-ui-router.min.js"></script>-->
+    <script type="text/javascript" src="cdn/angular-ui-router.min.js"></script>
+    <!--<script type="text/javascript" src="cdn/angular-animate.js"></script>-->
+    <script type="text/javascript">
+        var myApp = angular.module('myApp', ['ui.router']);
+        myApp.config(["$stateProvider", "$httpProvider", '$urlRouterProvider',"$locationProvider", function ($stateProvider, $httpProvider, $urlRouterProvider,$locationProvider) {
+            $locationProvider.html5Mode(false);
+            $urlRouterProvider.otherwise('/');
+            $httpProvider.interceptors.push('myInterceptor');
+            $stateProvider
+                    .state('a', {
+                        url: '/a',
+                        templateUrl: "loadpath/a.html",
+                        controller: "aController"
+                    })
+                    .state('b', {
+                        url: '/b',
+                        templateUrl: "loadpath/b.html",
+                        controller: "bController"
+                    });
+
+        }]);
+
+        //loading
+        myApp.factory('myInterceptor', ["$rootScope", function ($rootScope) {
+            var timestampMarker = {
+                request: function (config) {
+                    $rootScope.loading = true;
+                    console.log("send request!");
+                    return config;
+                },
+                response: function (response) {
+                    $rootScope.loading = false;
+                    console.log("over!");
+                    return response;
+                },
+                responseError:function(err){
+                    console.log(err);
+                    alert("请求结束，处理异常！错误代码："+err.status+","+err.statusText);
+                    $rootScope.loading = false;
+                }
+            };
+            return timestampMarker;
+        }]);
+
+        myApp.controller('aController', function($scope,$rootScope) {
+            $scope.page = "a";
+            console.log("a");
+        });
+
+        myApp.controller('bController', function($scope,$rootScope) {
+            $scope.page = "b";
+            console.log("b");
+        });
+    </script>
+</head>
+<body>
+<h1>index</h1>
+show={{loading}}
+<div id="mask-loading" class="mask-loading" ng-if="loading" style="background-color: rgba(0, 0, 0, 0.17);">
+    <div class="loading-icon"></div>
+</div>
+<div ui-view>{{page}}</div>
+<a ui-sref="a">go to a.html</a>
+<br/>
+<a ui-sref="b">go to b.html</a>
+</body>
+</html>
