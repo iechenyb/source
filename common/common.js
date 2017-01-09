@@ -3,7 +3,6 @@ var jsonPD = function (data) {
   else alert(data.msg);
   return false;
 }
-
 var myInterceptor = function ($rootScope) {
   var timestampMarker = {
     request: function (config) {

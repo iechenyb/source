@@ -21,7 +21,6 @@ var myInterceptor = function ($rootScope) {
     request: function (config) {
       $rootScope.loading = true;
       //sleep(0);
-      console.log("请求已发送！"+config);
       /*config.st=setTimeout(function () {
       },500);*/
       return config;
@@ -30,10 +29,8 @@ var myInterceptor = function ($rootScope) {
       //clearTimeout(response.config.st);
       console.log("response");
       if(response.status==200){
-        console.log("请求完成！");
         $rootScope.loading = false;
       }else{
-       console.log("请求响应失败！");
         $rootScope.loading = false;
       }
       return response;

@@ -9,6 +9,24 @@
     <link ref="stylesheet" href="../../cdn/amazeui.min.css"/>
     <link href="../../cdn/amazeui.min.css" rel="stylesheet">
     <link href="../../cdn/jquery.fullPage.min.css" rel="stylesheet">
+    <style>
+        .c {
+            border: 1px solid black;
+            width: 250px;
+        }
+
+        .c>.title {
+            background-color: orange;
+            color: white;
+            padding: .1em .3em;
+            cursor: pointer;
+        }
+
+        .c>.body {
+            padding: .1em .3em;
+        }
+
+    </style>
     <style type="text/css">
         .mask-loading .loading-icon {
             -webkit-animation: rotate 1s linear infinite;
@@ -57,7 +75,7 @@
         .div-c{ position:absolute; left:80px; top:480px; background:white; width:100%; height:300px}
         /* DIV背景颜色为蓝色 */
 
-        #nav { position: fixed; right: 20rem; top: 50%; width: 70px; margin: -160px 0 0; padding: 0; list-style-type: none; z-index: 70;}
+        #nav { position: fixed; right: 10rem; top: 50%; width: 70px; margin: -160px 0 0; padding: 0; list-style-type: none; z-index: 70;}
         #nav li { margin-top: 10px; font: 14px "Microsoft Yahei";}
         #nav a { display: block; padding: 10px 0; background-color: #fff; color: #0074EA; text-align: center; text-decoration: none;}
         #nav .active a { color: #fff; background-color: rgb(0, 116, 234);}
@@ -103,7 +121,25 @@
             <mylist></mylist>-->
        </div>
         <div class="am-u-sm-2" style="border:0px solid greenyellow;">
-
+            <expander class='c' expander-title='title'>
+                {{text}}
+            </expander>
+            <hr>
+            <accordion>
+                <expander1 class='c' ng-repeat='expander in expanders' expander-title='expander.title'>
+                    {{expander.text}}
+                </expander1>
+            </accordion>
+            <hr>
+            <expander class='c' expander-title='title'>
+                {{text}}
+            </expander>
+            <hr>
+            <accordion>
+                <expander1 class='c' ng-repeat='expander in expanders' expander-title='expander.title'>
+                    {{expander.text}}
+                </expander1>
+            </accordion>
         </div>
         <div class="am-u-sm-1" >&nbsp;</div>
     </div>
@@ -122,7 +158,8 @@
                 <mylist></mylist>
                 <mylist></mylist>
             </div>
-            <div class="am-u-sm-3" >&nbsp;</div>
+            <div class="am-u-sm-3" >
+            </div>
         </div>
     </div>
     <div class="section" style="background-color: white;overflow: auto">
@@ -180,7 +217,7 @@
                 <mylist></mylist>
                 <mypubu></mypubu>
             </div>
-            <div class="am-u-sm-3" >&nbsp;</div></div>
+            <div class="am-u-sm-3" >&nbsp;</div></div></div>
         <div class="slide"><div class="am-g  border ">
             <div class="am-u-sm-4" >&nbsp;</div>
             <div class="am-u-sm-5">
@@ -188,7 +225,7 @@
                 <mylist></mylist>
                 <mypubu></mypubu>
             </div>
-            <div class="am-u-sm-3" >&nbsp;</div></div>
+            <div class="am-u-sm-3" >&nbsp;</div></div></div>
         <div class="slide"><div class="am-g  border ">
             <div class="am-u-sm-4" >&nbsp;</div>
             <div class="am-u-sm-5">
@@ -196,13 +233,15 @@
                 <mylist></mylist>
                 <mypubu></mypubu>
             </div>
-            <div class="am-u-sm-3" >&nbsp;</div></div>
-    </div>
+            <div class="am-u-sm-3" >&nbsp;</div></div></div>
+       </div>
     <myfooter></myfooter>
 </div>
+
 <div class="am-g am-g-fixed border">
     <div class="am-u-sm-12" > &nbsp;</div>
     <button data-am-smooth-scroll class="am-btn am-btn-success" style="position:fixed;">滚动到顶部</button>
+</div>
 </div>
 <!--侧边菜单代码放到瀑布展示商品控件-->
 </body>
@@ -219,6 +258,7 @@
 <script type="text/javascript" src="../../component/common.js"></script>
 <script type="text/javascript" src="../../component/header/index.js"></script>
 <script type="text/javascript" src="../../component/footer/index.js"></script>
+<script type="text/javascript" src="../../component/director/index.js"></script>
 <script type="text/javascript" src="nav/index.js"></script>
 <script type="text/javascript" src="menu/index.js"></script>
 <script type="text/javascript" src="pubu/index.js"></script>
@@ -251,7 +291,7 @@
         css3: true,
         navigationTooltips: ['tip1', 'tip2', 'tip3', 'tip4',"tip5","tip6"],
         afterRender: function(){
-            $('.screen-main span').each(function(){
+           /* $('.screen-main span').each(function(){
                 var $rel = $(this).attr('rel');
                 var $arr = $rel.split(',');
                 $(this).animate({
@@ -266,35 +306,35 @@
                     left: $arr[0] + 'px',
                     top: $arr[1] + 'px'
                 }, 500);
-            });
+            });*/
         },
         afterLoad: function(anchorLink, index){
-            if(index == 1){
-                $('.screen-main span').each(function(){
-                    var $rel = $(this).attr('rel');
-                    var $arr = $rel.split(',');
-                    $(this).animate({
-                        left: $arr[2] + 'px',
-                        top: $arr[3] + 'px'
-                    }, 500);
-                });
-            }
-            if(index == 2 || index == 3 || index == 4 || index == 5){
-                $('.inner').eq(index - 2).find('a').each(function(){
-                    var $rel = $(this).attr('rel');
-                    var $arr = $rel.split(',');
-                    $(this).animate({
-                        left: $arr[2] + 'px',
-                        top: $arr[3] + 'px'
-                    }, 500);
-                });
-            }
-            if(index == 6){
-                $('.zanzhu-con a').fadeIn(1000);
-            }
+//            /*if(index == 1){
+//                $('.screen-main span').each(function(){
+//                    var $rel = $(this).attr('rel');
+//                    var $arr = $rel.split(',');
+//                    $(this).animate({
+//                        left: $arr[2] + 'px',
+//                        top: $arr[3] + 'px'
+//                    }, 500);
+//                });
+//            }
+//            if(index == 2 || index == 3 || index == 4 || index == 5){
+//                $('.inner').eq(index - 2).find('a').each(function(){
+//                    var $rel = $(this).attr('rel');
+//                    var $arr = $rel.split(',');
+//                    $(this).animate({
+//                        left: $arr[2] + 'px',
+//                        top: $arr[3] + 'px'
+//                    }, 500);
+//                });
+//            }
+//            if(index == 6){
+//                $('.zanzhu-con a').fadeIn(1000);
+//            }*/
         },
         onLeave: function(index, direction){
-            if(index == 1){
+            /*if(index == 1){
                 $('.screen-main span').each(function(){
                     var $rel = $(this).attr('rel');
                     var $arr = $rel.split(',');
@@ -316,7 +356,7 @@
             }
             if(index == 6){
                 $('.zanzhu-con a').fadeOut(1000);
-            }
+            }*/
         }
     });
 </script>
