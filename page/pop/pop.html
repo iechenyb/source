@@ -5,22 +5,33 @@
     <title>Title</title>
     <link href="dist/bootstrap.min.css" rel="stylesheet">
     <link href="dist/jquery.webui-popover.min.css" rel="stylesheet">
+    <style>
+        .border{
+            border:1px red solid;
+        }
+    </style>
 </head>
 <body>
+<div style="height: 200px;"></div>
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-3"><a href="#" class="show-pop btn btn-danger" data-placement="bottom-left" >pop bottom-left</a></div>
     <div class="col-md-3"><a href="#" class="show-pop btn btn-danger" data-placement="bottom">pop bottom</a></div>
     <div class="col-md-3"><a href="#" class="show-pop btn btn-danger" data-placement="bottom-right" >pop bottom-right</a></div>
 </div>
+<hr>
 <section class="container demo-container">
     <div class="row">
         <div class="col-md-5"><a href="#" class="show-pop btn btn-success">auto detect</a></div>
         <div class="col-md-2"><a href="#" class="show-pop btn btn-success">auto detect</a></div>
         <div class="col-md-5"><a href="#" class="show-pop btn btn-success pull-right" data-placement="auto">auto detect</a></div>
     </div>
-
 </section>
+<hr>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9"><a href="#" class="show-pop btn btn-danger" data-placement="top">pop top</a></div>
+    </div>
 </body>
 <script src="../../cdn/jquery.min.js"></script>
 <script src="dist/jquery.webui-popover.min.js"></script>
@@ -31,13 +42,27 @@
             title:'',
             content:'<img src="../../image/my/1.jpg" width="115px" height="80px"/>',
             width:120,
+            height:100,
             multi:false,
             closeable:false,
             style:'',
             padding:false
         };
         function initPopover () {
-            $('a.show-pop').webuiPopover('destroy').webuiPopover(settings);
+           $('a.show-pop').webuiPopover('destroy').webuiPopover(settings);
+            /*$('a.show-pop').webuiPopover({
+                content: '<span>工作日8：30-17：00<br>4008-889-889</span>',
+                trigger: 'hover',
+                animation: 'pop'
+            });
+           /* $('a.show-pop').webuiPopover({
+                content: '<img src="../../image/my/1.jpg" width="90px" height="80px"/>',
+                trigger: 'hover',
+               width:"120px",
+                /!*  height:"90px",*!/
+                animation: 'pop',
+                style:"border"
+            });*/
             console.log("iniit");
         }
         initPopover();

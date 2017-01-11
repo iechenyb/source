@@ -16,6 +16,29 @@ myApp.directive('expander', function() {
     return accordion;
 });
 var moban = function ($scope, $http, $stateParams,$rootScope,$state) {
+    var settings = {
+        trigger:'hover',
+        title:'',
+        content:'<img src="../../image/my/1.jpg" width="115px" height="80px"/>',
+        width:120,
+        multi:false,
+        closeable:false,
+        style:'',
+        padding:false
+    };
+    var settings1 = {
+        trigger:'hover',
+        title:'',
+        content:'<br><img src="../../image/my/1.jpg" width="200px" height="150px"/>',
+        width:"60rem",
+        height:"15rem",
+        multi:false,
+        closeable:false,
+        style:'position:fix,top:50%,left:30%;overflow:auto',
+        padding:false
+    };
+    $('div.show-pop').webuiPopover('destroy').webuiPopover(settings);
+    $('div.show-pop1').webuiPopover('destroy').webuiPopover(settings1);
     $scope.title = '点击展开';
     $scope.text = '这里是内部的内容。';
     $scope.expanders = [{

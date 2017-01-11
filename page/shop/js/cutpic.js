@@ -19,10 +19,11 @@ $(function() {
 
             case 'getCroppedCanvas':
             if (result) {
-
                 // 显示 Modal
                 $('#cropped-modal').modal().find('.am-modal-bd').html(result);
+                //$('#dp').html(result);
                 $('#download').attr('href', result.toDataURL('image/jpeg'));
+                console.log(result.toDataURL('image/jpeg'));
             }
             break;
         }
