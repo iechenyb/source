@@ -103,10 +103,49 @@ var mobanf = function ($scope,$state,$http) {
     }
 }
 myApp.controller("mycontroller",moban);
+myApp.run(['$rootScope',function ($rootScope) {
+
+    //路由开始切换
+    /**
+     * args[0]: 事件
+     * args[1]: 要切换的路由
+     * args[2]: 第一次进入该方法,没有当前路由,为undefined
+     */
+    $rootScope.$on('$routeChangeStart',function (event,next,current) {
+        console.log([event,next,current]);
+    });
+
+    //路由切换成功
+    /**
+     * args[0]: 事件
+     * args[1]: 当前的路由
+     * args[2]: 上一个路由,第一次进入该方法,没有上一个路由,为undefined
+     */
+    $rootScope.$on('$routeChangeSuccess',function (event,current,previous) {
+        console.log([event,current,previous]);
+    });
+
+    //路由切换失败(比如resolve中有错误等待),都会导致路由切换失败
+    $rootScope.$on('$routeChangeError',function (event,msg) {
+        console.log([event,msg]);
+    });
+
+    //当$location.path发生变化或者$location.url发生变化时触发
+    $rootScope.$on('$locationChangeStart',function (event,msg) {
+        console.log([event,msg]);
+    });
+
+    //当且仅当path或url变化成功后触发
+    $rootScope.$on('$locationChangeSuccess',function (event,msg) {
+        console.log([event,msg]);
+    });
+
+}])
 myApp.config(['$stateProvider', '$urlRouterProvider',"$httpProvider","$locationProvider",
     function($stateProvider, $urlRouterProvider,$httpProvider,$locationProvider) {
        $httpProvider.interceptors.push('myInterceptor');
         $locationProvider.html5Mode(false);
+        $locationProvider.hashPrefix = '!';
       /*
         $httpProvider.interceptors.push('authInterceptor');*/
         $stateProvider.state("moban",{

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../cdn/amazeui.min.css">
+    <style>
+        .jyts .rltitle {
+            margin-top: 8rem;
+            color: #26538f;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .jyts .rltitle [class*=am-icon-] {
+            margin: 0 3rem;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+
+        .jyts .rlxq {
+            margin: 3rem 0;
+        }
+
+        .jyts .rlxq div {
+            width: 14.28%;
+            color: #26538f;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .jyts .rl div {
+            width: 14.28%;
+            text-align: center;
+            font-size: 2.7rem;
+            float: left;
+            height: 4rem;
+            color: #26538f;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .jyts .rl div p{
+            width: 30px;
+            margin: auto;
+            text-align: right;
+        }
+        .jyts .rl div.chose{
+            color: #5cafdc!important;
+        }
+        .jyts .rl div:hover{
+            color: #5cafdc;
+        }
+
+        .jyts .rl div span {
+            position: absolute;
+            top: 0;
+            right: 30%;
+            content: " ";
+            border-color: #c81414;
+            border-style: solid;
+            border-width: 10px 5px 3px 5px;
+            border-bottom-color: transparent;
+        }
+
+        .jyts .rl div:nth-child(7n), .jyts .rl div:nth-child(7n+1) {
+            color: #b9b9b0;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="jyts">
+        <div class="am-text-center rltitle">
+            <i class="am-icon-angle-left" ng-click="subrl()"></i>
+            <span>{{yy}}年{{mm}}月</span>
+            <i class="am-icon-angle-right" ng-click="addrl()"></i>
+        </div>
+        <div class="rl am-container am-g" style="border:0px solid red;">
+            <div class="am-u-">星期天</div>
+            <div class="am-u-">星期一</div>
+            <div class="am-u-">星期二</div>
+            <div class="am-u-">星期三</div>
+            <div class="am-u-">星期四</div>
+            <div class="am-u-">星期五</div>
+            <div class="am-u-">星期六</div>
+        </div>
+        <div class="rl am-container am-g" style="border:0px solid green;">
+            <div ng-repeat="x in kong"></div>
+            <div ng-repeat="x in rlarray" ng-click="chosedate(x)" ng-class="x.class">
+                <p>{{x.value}}<span ng-if="x.data"></span></p>
+            </div>
+        </div>
+    </div>
+    <!--内容样式-->
+    <style>
+        .jytstexttitle {
+            margin-top: 8rem;
+            width: 960px;
+            margin-bottom: 4rem;
+            font-size: 1.8rem;
+        }
+        .jytstext {
+            width: 960px;
+        }
+    </style>
+    <center><div class="jytstexttitle"><span>{{yy}}年{{mm}}月{{dd}}日</span></div></center>
+   <!-- <div class="jytstext" ui-view></div>-->
+    <script src="../cdn/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script type="text/javascript" src="../cdn/angular.min.js"></script><!--1.5.7-->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+    <!--<script type="application/x-javascript" src="https://rawgit.com/iechenyb/source/master/cdn/angular-ui-router.min.js"></script>-->
+    <script type="text/javascript" src="../cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+    <!--<script type="javascript" src="jyts.js"></script>-->
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.msg="hahha";
+            $scope.yy="2017";
+            $scope.mm="12";
+            $scope.kong = new Array(new Date($scope.yy, $scope.mm - 1, 1).getDay());
+            for (var i = 0; i < $scope.kong.length; i++) {
+                $scope.kong[i] = i;
+            }
+            console.log($scope.kong);
+            //构建当前月天array
+            var temprlarray = new Array(new Date($scope.yy, $scope.mm, 0).getDate());
+            console.log(temprlarray);
+            $scope.tipDates = [1,8,9,20,27];
+            for (var i = 0; i < temprlarray.length; i++) {
+                temprlarray[i] = {
+                    value: i + 1,
+                    data: ($scope.tipDates.indexOf(i + 1) != -1) ? true : false
+                }
+            }
+            $scope.rlarray = temprlarray;
+            $scope.chosedate = function (x) {
+                if (x.data) {
+                    $scope.rlarray.forEach(function (item) {
+                        if (x.value == item.value) {
+                            item.class = 'chose';
+                        }
+                        else {
+                            item.class = null;
+                        }
+                    })
+                  $scope.dd=x.value;
+                }
+                return false;
+            }
+            //月份加
+            $scope.addrl = function () {
+                var temp = new Date($scope.yy, $scope.mm, 1);
+                $scope.mm=temp.getMonth()+1;
+                $scope.yy=temp.getFullYear();
+                reset();
+            };
+            //月份减
+            $scope.subrl = function () {
+                var temp = new Date($scope.yy, $scope.mm - 1, 1);
+                $scope.mm=temp.getMonth();
+                if ($scope.mm == 0) {
+                    $scope.yy = parseInt(temp.getFullYear()) - 1;
+                    $scope.mm = 12;
+                }else{
+                    $scope.yy=temp.getFullYear();
+                }
+                reset();
+            };
+
+            function reset(){
+                $scope.kong = new Array(new Date($scope.yy, $scope.mm - 1, 1).getDay());
+                for (var i = 0; i < $scope.kong.length; i++) {
+                    $scope.kong[i] = i;
+                }
+                console.log($scope.kong);
+                //构建当前月天array
+                var temprlarray = new Array(new Date($scope.yy, $scope.mm, 0).getDate());
+                console.log(temprlarray);
+                var tipDates = [1,8,9,20,27];
+                var num = Math.ceil(Math.random()*31);
+                tipDates=[];
+                for(var j=0;j<num;j++){
+                    tipDates.push(Math.ceil(Math.random()*31));
+                }
+                console.log(tipDates);
+                for (var i = 0; i < temprlarray.length; i++) {
+                    temprlarray[i] = {
+                        value: i + 1,
+                        data: (tipDates.indexOf(i + 1) != -1) ? true : false
+                    }
+                }
+                $scope.rlarray = temprlarray;
+            }
+        });
+    </script>
+</body>
+</html>
