@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="http://s.amazeui.org/assets/plugin/css/app.min.css">
+    <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
+</head>
+<body ng-app="app" ng-controller="controller">
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-4">
+            <ul class="am-tree" id="firstTree">
+                <li class="am-tree-branch am-hide" data-template="treebranch">
+                    <div class="am-tree-branch-header">
+                        <button class="am-tree-branch-name">
+                            <span class="am-tree-icon am-tree-icon-folder"></span>
+                            <span class="am-tree-label"></span>
+                        </button>
+                    </div>
+                    <ul class="am-tree-branch-children"></ul>
+                    <div class="am-tree-loader"><span class="am-icon-spin am-icon-spinner"></span></div>
+                </li>
+                <li class="am-tree-item am-hide" data-template="treeitem">
+                    <button class="am-tree-item-name">
+                        <span class="am-tree-icon am-tree-icon-item"></span>
+                        <span class="am-tree-label"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="am-u-sm-8"><div ui-view="">{{msg}}</div> </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../cdn/jquery.min.js"></script>
+<script type="text/javascript" src="../cdn/amazeui.min.js"></script>
+<script type="text/javascript" src="../cdn/amazeui.tree.js"></script>
+<script type="text/javascript" src="../cdn/angular.min.js"></script><!--1.5.7-->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.3.0-beta.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="../cdn/angular-ui-router.min.js"></script><!--0.3.1-->
+<script type="text/javascript">
+    var app = angular.module('app', ["ui.router"]);
+    var data=[];
+    var page ;
+    app.controller('controller', function($scope, $http, $stateParams,$rootScope,$state) {
+        $scope.msg="hehe!";
+        page = $scope;
+        $.getJSON("tree.json",function(d){
+            data=d;
+        });
+        $('#firstTree').tree({
+            dataSource: function(options, callback) {
+                // 模拟异步加载
+                setTimeout(function() {
+                    callback({data: options.products || data});
+                }, 400);
+            },
+            multiSelect: false,
+            cacheItems: true,
+            folderSelect: false
+        });
+        $('#firstTree').on('selected.tree.amui', function (event, data) {
+            console.log(data.selected[0]);
+            page.msg=data.selected[0].title;
+            $state.go(data.selected[0].url);
+            page.$apply();
+         });
+    })
+            .config(['$stateProvider', '$urlRouterProvider',"$httpProvider","$locationProvider",
+        function($stateProvider, $urlRouterProvider,$httpProvider,$locationProvider) {
+            $stateProvider.state("toTxt",{
+                url:"toTxt",
+                params:{id:null},
+                template:"<h1>待到来年九月八，我花开后百花杀。<br>冲天香阵透长安，满城尽带黄金甲。</h1>"
+            }).state("toHtml",{
+                url:"toHtml",
+                params:{id:null},
+                controller:function ($scope) {
+                    $scope.name="我是页面穿过来的参数！";
+                },
+                templateUrl:"dynmic.html"
+            });
+            $urlRouterProvider.otherwise("/toTxt");
+        }
+    ]).component('app', {
+        template: '<div class="app"><div ui-view>1231</div></div>',
+        restrict: 'E'
+    });
+</script>
+</html>

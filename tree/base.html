@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="http://s.amazeui.org/assets/plugin/css/app.min.css">
+    <link rel="stylesheet" href="http://amazeui.github.io/tree/amazeui.tree.css"/>
+</head>
+<body>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-4">
+            <ul class="am-tree" id="firstTree">
+                <li class="am-tree-branch am-hide" data-template="treebranch">
+                    <div class="am-tree-branch-header">
+                        <button class="am-tree-branch-name">
+                            <span class="am-tree-icon am-tree-icon-folder"></span>
+                            <span class="am-tree-label"></span>
+                        </button>
+                    </div>
+                    <ul class="am-tree-branch-children"></ul>
+                    <div class="am-tree-loader"><span class="am-icon-spin am-icon-spinner"></span></div>
+                </li>
+                <li class="am-tree-item am-hide" data-template="treeitem">
+                    <button class="am-tree-item-name">
+                        <span class="am-tree-icon am-tree-icon-item"></span>
+                        <span class="am-tree-label"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="am-u-sm-8"><div ui-view="">{{msg}}</div> </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../cdn/jquery.min.js"></script>
+<script type="text/javascript" src="../cdn/amazeui.min.js"></script>
+<script type="text/javascript" src="../cdn/amazeui.tree.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var data = [
+            {
+                title: '苹果公司',
+                type: 'folder',
+                products: [
+                    {
+                        title: 'iPhone',
+                        type: 'item'
+                    },
+                    {
+                        title: 'iMac',
+                        type: 'item'
+                    },
+                    {
+                        title: 'MacBook Pro',
+                        type: 'item'
+                    }
+                ]
+            },
+            {
+                title: '微软公司',
+                type: 'item'
+            },
+            {
+                title: 'GitHub',
+                type: 'item',
+                attr: {
+                    icon: 'am-icon-github'
+                }
+            }
+        ];
+            $.getJSON("tree.json",function(d){
+                data=d;
+            });
+        $('#firstTree').tree({
+            dataSource: function(options, callback) {
+                // 模拟异步加载
+                setTimeout(function() {
+                    callback({data: options.products || data});
+                }, 400);
+            },
+            multiSelect: false,
+            cacheItems: true,
+            folderSelect: false
+        });
+        });
+        $('#firstTree').on('selected.tree.amui', function (event, data) {
+           console.log(data.selected[0].type);
+    });
+</script>
+</html>

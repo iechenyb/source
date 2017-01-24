@@ -1,0 +1,17 @@
+[
+  {
+    "title": "功能菜单",
+    "type": "folder",
+    "products": [
+      {
+        "title": "加载文本",
+        "url":"toTxt",
+        "type": "item"
+      },{
+        "title": "加载html",
+        "url":"toHtml",
+        "type": "item"
+      }
+    ]
+  }
+]
