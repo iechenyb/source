@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8" />
+ <title>音乐播放器</title>
+ <script type="text/javascript" src="../cdn/jquery.min.js" ></script>
+ <!--<script src="js/music.js" type="text/javascript" charset="utf-8"></script>-->
+ <style>
+  * {
+      margin: 0 auto;
+      padding: 0;
+  }
+
+  .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+  }
+
+  .header {
+      width: 100%;
+      height: 44px;
+      background: lightcoral;
+      position: relative;
+  }
+
+  .title {
+      font-size: 20px;
+      color: white;
+      float: left;
+      margin: 7px 10px;
+  }
+
+  .search {
+      float: right;
+      width: 30px;
+      margin: 7px 10px;
+  }
+
+  .earch {
+      float: right;
+      width: 30px;
+      margin: 7px 10px;
+  }
+  .musicBox{
+      width: 100%;
+      position: absolute;
+      top: 44px;
+      bottom: 50px;
+      /*background:url(音乐播放器资源/img/bg.jpg);*/
+      background-size:100% 100%;
+      /*内容超出范围部分滚动*/
+      overflow: scroll;
+
+  }
+  /*定义一条音乐的列表,每行的样式 在js中动态加载到音乐列表每一行的div上*/
+  .music{
+      width: 100%;
+      height: 60px;
+      border-bottom: 2px solid gray;
+      margin: 10px 20px;
+      position: relative;
+  }
+  .music img{
+      width: 40px;
+      height: 40px;
+      margin: 10px 20px;
+
+  }
+  .music p{
+      color: goldenrod;
+      position: absolute;
+      left: 85px;
+      top: 10px;
+
+  }
+  /*音乐播放时所对应的行的样式*/
+  .musicPlay{
+      background: rgba(120,10,60,0.4);
+
+  }
+  .musicPlay p{
+      color: red;
+  }
+  /*设置footer 的样式*/
+  .footer{
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      bottom: 0px;
+      background: lightcoral;
+  }
+  .range{
+      width: 100%;
+      position: absolute;
+      top: -3px;
+      left: 0px;
+
+  }
+  .pic{
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      border-radius: 15px;
+      animation: picAn 2s infinite linear;
+
+  }
+  @keyframes picAn{
+      from{}
+      to{transform: rotate(360deg);}
+  }
+  /*控制按钮的样式*/
+  .play{
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 45%;
+      top: 10px;
+  }
+  .pre{
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 0px;
+      top: 5px;
+
+
+  }
+  .next{
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      right: 0px;
+      top: 5px;
+  }
+  .love{
+      position: absolute;
+      right: 5px;
+      top: 15px;
+      width: 20px;
+      height: 30px;
+
+  }
+  .musicControls{
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      top: 10px;
+  }
+ </style>
+ </head>
+
+ <body>
+ <div class="page">
+  <audio id="audio"></audio>
+  <div class="header">
+  <h3 class="title">我的音乐</h3>
+  <img class="search" src="m.jpg" />
+  <img class="earch" src="m.jpg" />
+  </div>
+     <!--显示音乐类表-->
+  <div class="musicBox">
+  <!--内容要通过读取json文件来获得 音乐列表-->
+
+  </div>
+     <!--控制台-->
+  <div class="footer">
+  <!--进度条-->
+  <input type="range" class=" range" />
+  <img src="m.jpg" class="pic" />
+      <!--控制按钮-->
+  <div class="musicControls">
+   <img src="l.jpg" class="pre" />
+   <img src="mid.jpg" class="play" />
+   <img src="r.jpg" class="next" />
+  </div>
+  <img src="l.jpg" class="love" />
+  </div>
+ </div>
+ </body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //音乐播放器需要，播放器对象player，音乐对象，用play去播放music对象
+// 创建music对象,用于保存音乐的属性
+        function Music(){
+
+        }
+        Music.prototype.src= "";
+        Music.prototype.img ="";
+        Music.prototype.num="";
+        Music.prototype.musicName="";
+        Music.prototype.name="";
+        //创建player对象
+        function Player(){
+
+        }
+        Player.prototype.audio = document.getElementById("audio");
+// 目前播放第几首歌
+        Player.prototype.playIndex=0;
+        Player.prototype.isplay = false;
+// 定义播放器的方法
+        Player.prototype.rangUpdate = function(){
+            //this.audio.ontimeupdate =function() 音乐播放器播放音乐时监听
+            //把进度条和音乐的时间长度结合起来
+            //音乐每播放一秒进读条就会前进一个单位 this.duration音乐的总长度
+            this.audio.ontimeupdate =function(){
+                //把进度条的总长度设为音乐的总长度
+                $(".range").attr("max",this.duration);
+
+                //设置进度条的值为播放的时间
+                $(".range").val(this.currentTime);
+                //当一首歌播放完再去播放下一首
+                if (this .currentTime == this.duration ) {
+                    player.nextMusic();
+                }
+            }
+
+        };
+        Player.prototype.playMusic =function(){
+            //向播放器添加音乐路径
+            $(this.audio).attr("src",musicModels[this .playIndex].src);
+            this .audio.play();
+            //换音乐图片
+            $(".pic").attr("src",musicModels[this.playIndex].img);
+            //波让其的状态
+            this .isplay= true;
+
+        };
+        Player.prototype.nextMusic = function(){
+
+
+            //越界问题
+            if (this .playIndex >= musicModels.length - 1) {
+                this.playIndex = 0;
+
+            }else{
+                this.playIndex = this .playIndex + 1;
+            }
+            //改变音乐类表的对应项的样式
+
+            this.playMusic();
+            $(".music").eq(this.playIndex).addClass("musicPlay")
+                    .siblings()
+                    .removeClass("musicPlay");
+
+        };
+        Player.prototype.preMusic =function(){
+            if (this .playIndex <= 0) {
+                this.playIndex = musicModels.length-1;
+
+            }else{
+                this.playIndex = this .playIndex - 1;
+            }
+            //改变音乐类表的对应项的样式
+
+            this.playMusic();
+            $(".music").eq(this.playIndex).addClass("musicPlay")
+                    .siblings()
+                    .removeClass("musicPlay");
+        };
+        Player.prototype.playOrPause = function(){
+            if(this.isplay){
+                this.audio.pause();
+                $(".play").attr("src","m.jpg");
+            }else{
+                this.audio.play();
+                $(".play").attr("src","mid.jpg");
+            }
+            this.isplay = !this.isplay;
+        };
+// js文件从此向下
+// 创建音乐数组
+        var musicModels = [];
+        //创建音乐播放器对象
+        var player= new Player();
+        /*Ajax 目的是在js中实现异步操作
+         * JS是单线程 的，在单线程中模拟java oc 多线程 开辟异步任务，，浏览器的引擎去做一步操作，
+         * 实质上不是开辟一个子线程，而是创建一个异步任务
+         * 优点：
+         * 1.不需要用户等待服务器相应
+         * 在异步派发xmlHTTPRequest 请求后，马上把控制权收回就被返回浏览器空页面
+         * 界面不会出现白板，等待后台服务器得到请求后，再去执行完成方法，在方法中填写界面数据的代码
+         * 2.不需要加载整个页面只需要更新局部数据，节省流量，减轻服务器压力
+         *
+         * 为xmlHTTPRequest 设置一个回调函数，服务器数据到达时触发函数，发送请求时可以带少量的参数
+         * 实现按需去数据
+         *
+         $.ajax(),这是jQuery 对ajax的封装的最基础的函数，通过这个函数可以实现异步通讯功能
+         var configObj= {
+         //  method:数据提交方式 get OR post
+         URL：请求的网址
+         async：是否异步，默认true
+         data：post请求的参数
+         dataType ：服务器返回的类型，xml string json
+         success:请求成功后的回调方法
+         error ：请求失败后的方法
+
+         }
+         $.ajax(configObj);完成异步请求
+         二、$post()只能采取post请求
+         三、$get()
+         四、$getJSON( url ,完成回调);可以请求本地路径的内容
+         *
+         *
+         * */
+        $.getJSON("pbl.json",function(data){
+//  console.log(data);
+            for (var i=0;i<data.length;i++) {
+                var music = new Music();
+                music.src= "" + data[i].src;
+                music.img= "" + data[i].img;
+                music.musicName = data[i].musicName;
+                music.name = data[i].name;
+                music.num = data[i].num;
+                musicModels.push(music);
+
+            }
+            //播放音乐
+            isertData();
+            player.playMusic();
+            player.rangUpdate();
+            $(".music").eq(player.playIndex).addClass("musicPlay")
+                    .siblings()
+                    .removeClass("musicPlay");
+        });
+        function isertData(){
+            //先要遍历数据源数组
+            /*
+             html5 中添加了一个data-*的方式 来自定义属性
+             用data-前缀，添加到自定义属性名上，
+             这样的结构可以存储少量的数据
+             * */
+            for (var i=0;i<musicModels.length;i++) {
+//  /创建一个DIV元素表示,音乐中的一行,给这个div添加music样式
+//和绑定自定义属性index来记录这个div是列表中的第几行
+                var $musicDiv = $("<div class = 'music' data-index = "+ i +"></div>");
+//  将这个div添加到musicBox 中
+                $(".musicBox").append($musicDiv);
+//  设计musicdiv中的子元素,子元素有两个,一个是歌曲的图片,歌曲的信息
+//  创建一个img 显示歌曲图片
+                var $img = (
+                "<img src =" + musicModels[i].img+" />");
+                $musicDiv.append($img);
+//  创建一个音乐信息的p标签
+                var $musicMsg = $("<p>"+musicModels[i].musicName+" 演唱者："
+                        +musicModels[i].name
+                        +"</p>"
+                );
+                $musicDiv.append($musicMsg);
+
+            }
+            $(".music").click(
+                    function(e){
+                        //从被选中的div中读取自定义 index属性
+
+                        player.playIndex = $(this ).data("index");
+                        player.playMusic();
+                        //被选中的div设置musicplay样式，该div的兄弟元素要溢出musicplay样式
+                        //保证只有一个div有musicplay
+                        $(this).addClass("musicPlay").siblings().removeClass("musicPlay");
+
+
+                    }
+            );
+        }
+
+        $(".play").click(function(){
+            player.playOrPause();
+        });
+
+        $(".next").click(function(){
+            player.nextMusic();
+
+
+        });
+        $(".pre").click(function(){
+            player.preMusic();
+
+
+        });
+
+
+    });
+</script>
+</html>
