@@ -1,0 +1,48 @@
+a1 {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    color: #000;
+    font-size: 32px;
+    padding: 5px 10px;
+}
+
+a1:hover::before, a1:hover::after { position: absolute; }
+a1:hover::before { content: "\5B"; left: -10px; }
+a1:hover::after { content: "\5D"; right:  -10px; }
+
+
+a {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    color: #000;
+    font-size: 32px;
+    padding: 0 10px;
+}
+
+/* 大框 */
+a:hover::before, a:hover::after {
+    content: "";
+    display: block;
+  /*  position: absolute;*/
+    top: -20%;
+    left: -14%;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D0D;  box-shadow:1px 1px 1px 1px red;
+}
+
+/* 小框 */
+/*
+a:hover::after {
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-width: 2px;
+}*/
