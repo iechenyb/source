@@ -1,17 +1,141 @@
 [
   {
-    "title": "功能菜单",
+    "title": "页面跳转",
     "type": "folder",
     "products": [
       {
         "title": "加载文本",
         "url":"toTxt",
-        "type": "item"
+        "type": "item",
+        "method":"isref"
       },{
         "title": "加载html",
         "url":"toHtml",
-        "type": "item"
+        "type": "item",
+        "method":"isref"
+      },{
+        "title": "动态跳转到html",
+        "url":"../border.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "路由原理",
+        "url":"../lanjieqi.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "拦截器",
+        "url":"../lanjieqi.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "菜单原理",
+        "url":"../div.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "组件学习1",
+        "url":"../page/moban2/index.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "组件学习2",
+        "url":"../page/moban3/index.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "pageTab学习",
+        "url":"../page/mutliPage/Main.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "主页框架1",
+        "url":"../page/admin/nav.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "主页框架2",
+        "url":"../page/admin/nav2.html",
+        "type": "item",
+        "method":"href"
+      }
+    ,{
+        "title": "主页框架3",
+        "url":"../page/admin/nav3.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "主页框架4(单)",
+        "url":"../index.html",
+        "type": "item",
+        "method":"href"
+      },{
+        "title": "主页框架5(单)",
+        "url":"../index1.html",
+        "type": "item",
+        "method":"href"
       }
     ]
-  }
+  },{
+  "title": "系统功能",
+  "type": "folder",
+  "products": [
+    {
+      "title": "兔吧(宽)",
+      "url":"../page/shop/index1.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "兔吧(窄)",
+      "url":"../page/shop/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "兔吧(手机)",
+      "url":"../page/shop/phone/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "日历",
+      "url":"../rl/index1.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "瀑布",
+      "url":"../page/shop/pubu.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "上传图像",
+      "url":"../page/shop/cutpic.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "音乐播放器",
+      "url":"../muisce/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "视频播放器",
+      "url":"../video/video.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "气泡",
+      "url":"../page/pop/pop.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "图片布局自适应",
+      "url":"../ampic.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "媒体标签，自适应",
+      "url":"../media.html",
+      "type": "item",
+      "method":"href"
+    }
+  ]
+}
 ]

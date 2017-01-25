@@ -3,193 +3,152 @@
 <head>
     <meta charset="utf-8" />
     <title>div重叠 叠加实例 未排层叠顺序 http://blog.csdn.net/ssisse/article/details/52344180</title>
-    <style>
-        #tri{
-             width: 0px;
-             height: 0px;
-             border-top: 40px solid red;
-             border-right: 40px solid blue;
-             border-bottom: 240px solid green;
-             border-left: 40px solid yellow;
-         }
-        #tri1{
-            width: 0px;
-            height: 0px;
-            border-top: 0px solid red;
-            border-right: 40px solid blue;
-            border-bottom: 40px solid green;
-            border-left: 40px solid yellow;
-
-        }
-        #tri2{
-            width: 0px;
-            height: 0px;
-            border-top: 00px solid red;
-            border-right: 00px solid blue;
-            border-bottom: 40px solid green;
-            border-left: 40px solid yellow;
-        }
-        #tri3{
-            width: 0px;
-            height: 0px;
-            border-top: 0px solid red;
-            border-right: 0px solid blue;
-            border-bottom: 0px solid green;
-            border-left: 40px solid yellow;
-        }
-        #tri4{
-            width: 0px;
-            height: 0px;
-            border-top: 40px solid red;
-            border-right: 20px solid blue;
-            border-bottom: 30px solid green;
-            border-left: 40px solid yellow;
-        }
-        #tri5{
-           /* position: absolute;
-            top: 0;
-            right: 30%;*/
-            width: 0px;
-            height: 0px;
-            content: "xxxxxxx";
-            border-color: green;
-            border-style: solid;
-            border-width: 10px 5px 3px 5px;
-            border-bottom-color: transparent;
-        }
-
-        /*向上*/
-        .triangle_border_up{
-            width:0;
-            height:0;
-            border-width:0 30px 30px;
-            border-style:solid;
-            border-color:transparent transparent #333;/*透明 透明  灰*/
-            margin:40px auto;
-            position:relative;
-        }
-        .triangle_border_up span{
-            display:block;
-            width:0;
-            height:0;
-            border-width:0 28px 28px;
-            border-style:solid;
-            border-color:transparent transparent #fc0;/*透明 透明  黄*/
-            position:absolute;
-            top:0px;
-            left:0px;
-        }
-        /*向下*/
-        .triangle_border_down{
-            width:0;
-            height:0;
-            border-width:30px 30px 0;
-            border-style:solid;
-            border-color:#333 transparent transparent;/*灰 透明 透明 */
-            margin:40px auto;
-            position:relative;
-        }
-        .triangle_border_down span{
-            display:block;
-            width:0;
-            height:0;
-            border-width:28px 28px 0;
-            border-style:solid;
-            border-color:#fc0 transparent transparent;/*黄 透明 透明 */
-            position:absolute;
-            top:0px;
-            left:0px;
-        }
-        /*向左*/
-        .triangle_border_left{
-            width:0;
-            height:0;
-            border-width:30px 30px 30px 0;
-            border-style:solid;
-            border-color:transparent #333 transparent transparent;/*透明 灰 透明 透明 */
-            margin:40px auto;
-            position:relative;
-        }
-        .triangle_border_left span{
-            display:block;
-            width:0;
-            height:0;
-            border-width:28px 28px 28px 0;
-            border-style:solid;
-            border-color:transparent #fc0 transparent transparent;/*透明 黄 透明 透明 */
-            position:absolute;
-            top:0px;
-            left:0px;
-        }
-        /*向右*/
-        .triangle_border_right{
-            width:0;
-            height:0;
-            border-width:30px 0 30px 30px;
-            border-style:solid;
-            border-color:transparent transparent transparent #333;/*透明 透明 透明 灰*/
-            margin:40px auto;
-            position:relative;
-        }
-        .triangle_border_right span{
-            display:block;
-            width:0;
-            height:0;
-            border-width:28px 0 28px 28px;
-            border-style:solid;
-            border-color:transparent transparent transparent #fc0;/*透明 透明 透明 黄*/
-            position:absolute;
-            top:0px;
-            left:0px;
-        }
-
-        /*正方形*/
-        .Square { width: 100px; height: 100px; background: #669; }
-        /*矩形*/
-        .rectangle { width: 200px; height: 100px; background: #669; }
-        /*梯形*/
-        .trapezoid {
-            border-bottom: 100px solid #669;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            height: 0;
-            width: 100px; }
-        /*平行四边形*/
-        .parallelogram {
-            width: 150px;
-            height: 100px;
-            -webkit-transform: skew(-20deg);
-            -moz-transform: skew(-20deg);
-            -o-transform: skew(-20deg);
-            background: #669;
-            margin-left:20px; }
-    </style>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="css/tx.css">
 </head>
 <body>
-<div id="tri"></div>top=rigth=bottom=left<hr>
-<div id="tri1"></div><hr>
-<div id="tri2"></div><hr>
-<div id="tri3"></div><hr>
-<div id="tri4"></div><hr>
-<div id="tri5"></div><hr>
-<!-- 向上的三角形 -->
-<div class="triangle_border_up">
-    <span></span>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-2">
+            <div id="tri">1</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="tri1">2</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="tri2">3</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="tri3">4</div>&nbsp;
+        </div>
+        <div class="am-u-sm-2">
+            <div id="tri4">5</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="tri5">6</div>
+        </div>
+    </div>
 </div>
-
-<!-- 向下的三角形 -->
-<div class="triangle_border_down">
-    <span></span>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-3">
+            <!-- 向上的三角形 -->
+            <div class="triangle_border_up">
+                <span></span>
+            </div>
+        </div>
+        <div class="am-u-sm-3">
+           <div class="triangle_border_down">
+            <span></span>
+            </div>
+        </div>
+        <div class="am-u-sm-3">
+            <div class="triangle_border_left">
+                <span></span>
+            </div>
+        </div>
+        <div class="am-u-sm-3">
+            <div class="triangle_border_right">
+                <span></span>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!-- 向左的三角形 -->
-<div class="triangle_border_left">
-    <span></span>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-3">
+            <div style="border-radius: 100%; width: 100px; height: 100px;background-color: darkslategray"></div>
+        </div>
+        <div class="am-u-sm-3">
+            <div style="border-radius: 20%; width: 100px; height: 100px;background-color: darkslategray"></div>
+        </div>
+        <div class="am-u-sm-3">
+            <div style="border-radius: 10%; width: 100px; height: 100px;background-color: darkslategray"></div>
+        </div>
+        <div class="am-u-sm-3">
+            <div style="border-radius: 0%; width: 100px; height: 100px;background-color: darkslategray"></div>
+        </div>
+    </div>
 </div>
-
-<!-- 向右的三角形 -->
-<div class="triangle_border_right">
-    <span></span>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-3">
+            <div style="border-radius: 100%; width: 100px; height: 100px;background-color: darkslategray;background: url('image/my/1.jpg') center;padding: 10px"></div>
+        </div>
+        <div class="am-u-sm-3">
+            <div style="border-radius: 20%; width: 100px; height: 100px;background-color: darkslategray;background: url('image/my/1.jpg') center;padding: 10px"></div>
+        </div>
+        <div class="am-u-sm-3">
+            <div style="border-radius: 10%; width: 100px; height: 100px;background-color: darkslategray;background: url('image/my/1.jpg') center;padding: 10px"></div>
+        </div>
+        <div class="am-u-sm-3">
+            <div style="border-radius: 0%; width: 100px; height: 100px;background-color: darkslategray;background: url('image/my/1.jpg') center;padding: 10px"></div>
+        </div>
+    </div>
 </div>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-2">
+            <div class="oval" style="padding-left:40px">1</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div class="oval" style="background: url('image/my/1.jpg') center;padding: 10px">2</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div class="oval" style="background: url('image/my/1.jpg') center;padding: 70px">3</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div class="oval" style="background: url('image/my/1.jpg') center;padding-left: 40px">4</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="star-five" >2</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="star-six">3</div>
+        </div>
+    </div>
+</div>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-2">
+            <div id="pentagon"></div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="hexagon">2</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="octagon">3</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="heart">4</div>
+        </div>
+        <div class="am-u-sm-4">
+            <div id="infinity">2</div>
+        </div>
+    </div>
+</div>
+<div class="am-container">
+    <div class="am-g">
+        <div class="am-u-sm-2">
+            <div id="talkbubble">3</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="cut-diamond">2</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="yin-yang">3</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="heart">4</div>
+        </div>
+        <div class="am-u-sm-4">
+            <div id="infinity">2</div>
+        </div>
+        <div class="am-u-sm-2">
+            <div id="talkbubble">3</div>
+        </div>
+    </div>
+</div>
+<div id="yin-yang">3</div>
 </body>
 </html>

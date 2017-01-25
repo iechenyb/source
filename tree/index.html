@@ -33,6 +33,7 @@
         <div class="am-u-sm-8"><div ui-view="">{{msg}}</div> </div>
     </div>
 </div>
+<a id="page" target="_blank"></a>
 </body>
 <script type="text/javascript" src="../cdn/jquery.min.js"></script>
 <script type="text/javascript" src="../cdn/amazeui.min.js"></script>
@@ -45,7 +46,7 @@
     var data=[];
     var page ;
     app.controller('controller', function($scope, $http, $stateParams,$rootScope,$state) {
-        $scope.msg="hehe!";
+        $scope.msg="我是默认的工作区!";
         page = $scope;
         $.getJSON("tree.json",function(d){
             data=d;
@@ -64,7 +65,12 @@
         $('#firstTree').on('selected.tree.amui', function (event, data) {
             console.log(data.selected[0]);
             page.msg=data.selected[0].title;
-            $state.go(data.selected[0].url);
+            if(data.selected[0].method=="href"){
+                document.getElementById("page").href=data.selected[0].url;
+                document.getElementById("page").click();
+            }else {
+                $state.go(data.selected[0].url);
+            }
             page.$apply();
          });
     })
