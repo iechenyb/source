@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>jQuery图片动态信息显示幻灯效果</title>
+    <style>
+        .galleryContainer {width: 1024px;}
+        .galleryImage { background-color:black; width:325px; height:260px; overflow:hidden; margin:5px; float:left;}
+        .info { margin-left:10px; font-family:arial;padding:3px;}
+        .info h2 { color:gray;}
+        .info p { color:white}
+        .clear { clear:both; margin-top:10px;}
+    </style>
+    <script type="text/javascript" src="../cdn/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $('.galleryImage').hover(
+                    function(){
+                        $(this).find('img').animate({width:100, marginTop:10, marginLeft:10}, 500);
+                    },
+                    function(){
+                        $(this).find('img').animate({width:325, marginTop:0, marginLeft:0},300);
+                    });
+        });
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+<div class="galleryContainer">
+    <!--galleryEntry-->
+    <div class="galleryImage">
+        <img src="http://files.jb51.net/file_images/article/201508/2015810102423303.jpg"></img>
+        <div class="info">
+            <h2>美国农场</h2>
+            <p>
+                美国农场的大自然美景.
+            </p>
+        </div>
+    </div>
+    <!--end galleryEntry-->
+    <!--galleryEntry-->
+    <div class="galleryImage">
+        <img src="http://files.jb51.net/file_images/article/201508/2015810102436957.jpg"></img>
+        <div class="info">
+            <h2>日落黄昏</h2>
+            <p>
+                美丽的日落，拍摄于2009年10月16日，印度尼西亚。
+            </p>
+        </div>
+    </div>
+    <!--end galleryEntry-->
+    <!--galleryEntry-->
+    <div class="galleryImage">
+        <img src="http://files.jb51.net/file_images/article/201508/2015810102445216.jpg"></img>
+        <div class="info">
+            <h2>欧洲乡野</h2>
+            <p>
+                沉浸在大自然的寂静里, Tennessee in 2006.
+            </p>
+        </div>
+    </div>
+    <!--end galleryEntry-->
+    <div >
+        <img src="http://files.jb51.net/file_images/article/201508/2015810102445216.jpg"
+             onmouseover="this.style.opacity = 0.5;this.style.border='2px solid red';this.style.width='100px;'"
+             onmouseout="this.style.opacity = 1;this.style.border='0px solid red'"></img>
+    </div>
+</div>
+</div>
+</body>
+</html>

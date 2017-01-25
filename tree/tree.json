@@ -106,6 +106,11 @@
       "type": "item",
       "method":"href"
     },{
+      "title": "放大镜",
+      "url":"../page/shop/detail.html",
+      "type": "item",
+      "method":"href"
+    },{
       "title": "上传图像",
       "url":"../page/shop/cutpic.html",
       "type": "item",
@@ -133,6 +138,97 @@
     },{
       "title": "媒体标签，自适应",
       "url":"../media.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "图片动态效果",
+      "url":"../pic/mouseon.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "图片动态效果1",
+      "url":"../pic/3/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "图片动态效果2",
+      "url":"../pic/1/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "图片动态效果3",
+      "url":"../pic/2/index.html",
+      "type": "item",
+      "method":"href"
+    }
+  ]
+},{
+  "title": "网站模板",
+  "type": "folder",
+  "products": [
+    {
+      "title": "登录1",
+      "url":"../login/1/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "登录2",
+      "url":"../login/2/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "手机密码输入",
+      "url":"../login/3/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站1",
+      "url":"../moban/1/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站2",
+      "url":"../moban/2/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站3",
+      "url":"../moban/3/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站4-博客",
+      "url":"../moban/4/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站5",
+      "url":"../moban/5/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站6",
+      "url":"../moban/6/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站7",
+      "url":"../moban/7/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站8",
+      "url":"../moban/8/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站9",
+      "url":"../moban/9/index.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "网站10",
+      "url":"../moban/10/index.html",
       "type": "item",
       "method":"href"
     }
