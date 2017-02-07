@@ -141,6 +141,11 @@
       "type": "item",
       "method":"href"
     },{
+      "title": "图标切割",
+      "url":"../pic/sprites.html",
+      "type": "item",
+      "method":"href"
+    },{
       "title": "媒体标签，自适应",
       "url":"../media.html",
       "type": "item",
@@ -234,6 +239,27 @@
     },{
       "title": "图片动态效果3",
       "url":"../pic/2/index.html",
+      "type": "item",
+      "method":"href"
+    }
+  ]
+},{
+  "title":"分页组件",
+  "type":"folder",
+  "products":[
+    {
+      "title": "分页1",
+      "url":"../split/1.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "分页2",
+      "url":"../split/2.html",
+      "type": "item",
+      "method":"href"
+    },{
+      "title": "分页3",
+      "url":"../split/3.html",
       "type": "item",
       "method":"href"
     }

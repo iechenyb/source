@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS  依赖注入</title>
+</head>
+
+<body ng-app = "mainApp" ng-controller = "CalcController">
+<h2>AngularJS 简单应用</h2>
+自定义方法和设置默认参数，采用controller注入的方式进行条用！
+<div >
+    <p>输入一个数字: <input type = "number" ng-model = "number" /> <button ng-click = "square()">X<sup>2</sup></button></p>
+    <p>结果: {{result}}</p>
+</div>
+<hr>
+使用anjular的copy方法，禁用数据的双向绑定特性！<br>
+data: <input ng-model="user.data" /><br>
+user.data: {{user.data}} <br>
+<!--user1.data: {{user1.data}} <br>-->
+<button ng-click="changeData1()">change</button>
+<button ng-click="copy()">copy</button>
+<button ng-click="use()">使用copy值</button> <br>
+copyData: {{copyUser.data}}
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+<script>
+    var mainApp = angular.module("mainApp", []);
+    mainApp.config(function($provide) {
+        $provide.provider('MathService', function() {
+            this.$get = function() {
+                var factory = {};
+
+                factory.multiply = function(a, b) {
+                    return a * b;
+                }
+                return factory;
+            };
+        });
+    });
+
+    mainApp.value("defaultInput", 5);
+
+   /* mainApp.factory('MathService', function() {
+        var factory = {};
+
+        factory.multiply = function(a, b) {
+            return a * b;
+        }
+        return factory;
+    });*/
+
+    mainApp.service('CalcService', function(MathService){
+        this.square = function(a) {
+            return MathService.multiply(a,a);
+        }
+    });
+
+    mainApp.controller('CalcController', function($scope, CalcService, defaultInput) {
+        $scope.number = defaultInput;
+        $scope.result = CalcService.square($scope.number);
+
+        $scope.square = function() {
+            $scope.result = CalcService.square($scope.number);
+        }
+        $scope.user1=$scope.user;
+        //取消反向代理
+        $scope.changeData1 = function () {
+            $scope.user.data = 'is changed';
+            $scope.user1=$scope.user;
+        }
+        $scope.copy = function () {
+            $scope.copyUser=angular.copy($scope.user);
+        };
+        $scope.use = function () {
+            $scope.user=$scope.copyUser;
+            //$scope.$apply();
+        };
+    });
+</script>
+
+</body>
+</html>
