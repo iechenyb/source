@@ -3,20 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a6309a89-8617-4b50-a584-a62df9a2ed42" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/component/common.js" afterPath="$PROJECT_DIR$/component/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/component/footer/index.js" afterPath="$PROJECT_DIR$/component/footer/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/component/header/index.js" afterPath="$PROJECT_DIR$/component/header/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/admin/nav2.html" afterPath="$PROJECT_DIR$/page/admin/nav2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/admin/nav3.html" afterPath="$PROJECT_DIR$/page/admin/nav3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/moban/index.html" afterPath="$PROJECT_DIR$/page/moban/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/moban2/index.html" afterPath="$PROJECT_DIR$/page/moban2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/shop/ggwindow/index.js" afterPath="$PROJECT_DIR$/page/shop/ggwindow/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/shop/index.html" afterPath="$PROJECT_DIR$/page/shop/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/shop/index1.html" afterPath="$PROJECT_DIR$/page/shop/index1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/shop/list/index.js" afterPath="$PROJECT_DIR$/page/shop/list/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/shop/menu/index.js" afterPath="$PROJECT_DIR$/page/shop/menu/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/shop/nav/index.js" afterPath="$PROJECT_DIR$/page/shop/nav/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/shop/pubu/index.js" afterPath="$PROJECT_DIR$/page/shop/pubu/index.js" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -601,7 +587,7 @@
       <workItem from="1487051865540" duration="9309000" />
       <workItem from="1487119669837" duration="1718000" />
       <workItem from="1487551756030" duration="107000" />
-      <workItem from="1488338842203" duration="2460000" />
+      <workItem from="1488338842203" duration="2489000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1483931649381</created>
@@ -729,11 +715,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486450355041</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update">
+      <created>1488343238155</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1488343238155</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124109000" />
+    <option name="totallyTimeSpent" value="124138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
