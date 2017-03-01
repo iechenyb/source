@@ -12,10 +12,10 @@
       $state.go("toPage",{id:id});
     }
   };
-  //http://localhost:3000/source1/page/shop/menu/index.html
+var url=basePath+"page/shop/ggwindow/index.html";
   var gg = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/web/page/shop/ggwindow/index.html',
+    templateUrl:url,
     bindings:{links:'='},
     controllerAs:"ggController",
     controller:ggController

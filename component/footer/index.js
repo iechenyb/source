@@ -1,8 +1,9 @@
 (function myfooter() {
+  var url = basePath+'component/footer/index.html';
   var footer = {
     restrict: 'E',
-    templateUrl: '../../component/footer/index.html',
-  };//http://localhost:3000/source1/component/
+    templateUrl: url,
+  };
   footerModule = angular.module('myfooter', ['ui.router'])
     .component('myfooter', footer);
 })();

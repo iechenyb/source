@@ -1,5 +1,4 @@
 (function myheader() {
-  var basePath = "http://localhost:3000/" ;
   var headerController=function($scope,$rootScope,$state,$http,$location){
     bathPath1 = $location.protocol() +"://"+$location.host()+":"+$location.port()+"/";
     console.log("myheader component!"+ bathPath1);
@@ -7,7 +6,7 @@
       $state.go("toPage",{id:id});
     }
   };
-  var url = basePath+'web/component/header/index.html';
+  var url = basePath+'component/header/index.html';
   var header = {
     restrict: 'E',
     templateUrl: url,

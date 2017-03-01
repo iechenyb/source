@@ -4,9 +4,10 @@
       $state.go("toPage",{id:id});
     }
   };
+  var url = basePath+"page/shop/nav/index.html";
   var top = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/web/page/shop/nav/index.html',
+    templateUrl: url,
     bindings:{links:'='},
     controllerAs:"topController",
     controller:topController

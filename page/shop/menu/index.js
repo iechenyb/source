@@ -12,10 +12,10 @@
       $state.go("toPage",{id:id});
     }
   };
-  //http://localhost:3000/source1/page/shop/menu/index.html
+var url = basePath+"page/shop/menu/index.html";
   var menu = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/web/page/shop/menu/index.html',
+    templateUrl: url,
     bindings:{links:'='},
     controllerAs:"menuController",
     controller:menuController

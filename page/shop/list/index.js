@@ -17,10 +17,10 @@
       id=3;
     }
   };
-  //http://localhost:3000/source1/page/shop/menu/index.html
+var url = basePath+"page/shop/list/index.html";
   var list = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/web/page/shop/list/index.html',
+    templateUrl: url,
     bindings:{links:'='},
     controllerAs:"listController",
     controller:listController

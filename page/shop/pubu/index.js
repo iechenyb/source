@@ -22,10 +22,10 @@
       delay: 500
     });
   };
-  //http://localhost:3000/source1/page/shop/menu/index.html
+ var url=basePath+"page/shop/pubu/index.html";
   var pubu = {
     restrict: 'E',
-    templateUrl: 'http://localhost:3000/web/page/shop/pubu/index.html',
+    templateUrl: url,
     bindings:{links:'='},
     controllerAs:"pubuController",
     controller:pubuController

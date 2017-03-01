@@ -1,3 +1,5 @@
+//var basePath = "http://101.200.63.13/web/";
+var basePath="http://localhost:3000/web/";
 var jsonPD = function (data) {
   if (data.code == 0)return true;
   else alert(data.msg);
