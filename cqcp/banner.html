@@ -21,8 +21,8 @@ body
                 <div class="text">
                     <h2>重庆时时彩</h2>
                     <p>
-                        <span>10:00--22:00/十分钟开奖</span><br />
-                        <span>22:05--01:55/五分钟开奖</span>
+                        <span>10:00--22:00/十分钟</span><br />
+                        <span>22:05--01:55/五分钟</span>
                     </p>
                 </div>
             </div>
@@ -77,8 +77,9 @@ setInterval(playsoundtime,1000);
 
 function cqssccont()
 {
-	$("#cqsscdt").css("display","none");	
-	var htmlobj=$.ajax({url:"cqssc.html?r=" + Math.random().toString(),async:false});
+	$("#cqsscdt").css("display","none");
+	var url="data/zjh.txt?r=" + Math.random().toString();
+	var htmlobj=$.ajax({url:url,async:false});
 	if(htmlobj.responseText!="0")
 	{
 		$("#cqsscdt").css("display","");

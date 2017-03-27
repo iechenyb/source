@@ -1,6 +1,6 @@
 @charset "utf-8";
 /*all*/
-* {margin:0; padding:0; font-family:"ËÎÌå"; font-size:12px;
+* {margin:0; padding:0; font-family:"å¾®è½¯é›…é»‘"; font-size:12px;
 }
 body{background:#fff; min-width:914px;}
 ul{list-style:none;}
@@ -13,11 +13,12 @@ table { border-collapse: collapse;}
 .fl{float:left;}
 .fr{float:right;}
 
-/*ÖØÇìÊ±Ê±²ÊÊý×Ö±³¾°*/
+/*ï¿½ï¿½ï¿½ï¿½Ê±Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½*/
 .cqssc-nums {padding-left:50px;padding-top:18px}
-.cqssc-nums span {width: 42px; height: 42px; background:#39edfd;border-radius:21px; float: left; margin-right: 8px; margin-left: 8px; font-family: Tahoma; line-height: 42px; text-align: center; font-size: 32px; font-weight: bold; color: #309;}
+.cqssc-nums span {width: 42px; height: 42px; background:#FFFF00;border-radius:21px; float: left; margin-right: 8px; margin-left: 8px;
+    font-family: Tahoma; line-height: 42px; text-align: center; font-size: 32px; font-weight: bold; color: #ff0000;}
 
-/*²ÊÖÖ¿ª½±Ò³Ãæ£¨±±¾©Èü³µ£©*/
+/*ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½Ò³ï¿½æ£¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .main .width_1000 .icon ul li{width:140px; height:126px; float:left; text-align:center;}
 .main .width_1000 .icon ul li h1 a{font-size:14px; color:#000;}
 .main .width_1000 .icon ul li h1 img{width:50px; height:50px; margin:20px 0 12px 0;}
@@ -27,12 +28,12 @@ table { border-collapse: collapse;}
 .main .width_1000 .count .firstcount .pic{width:70px; float:left; margin:14px 0 0 22px;}
 .main .width_1000 .count .firstcount .pic img{width:70px; height:70px;}
 .main .width_1000 .count .firstcount .text{width:150px; float:left; text-align:center; margin-top:14px;}
-.main .width_1000 .count .firstcount .text h2{font-family:"Î¢ÈíÑÅºÚ"; font-size:24px; color:#fff; font-weight:normal; height:36px; background:url(images/line2.png) no-repeat center bottom;}
+.main .width_1000 .count .firstcount .text h2{font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½"; font-size:24px; color:#fff; font-weight:normal; height:36px; background:url(images/line2.png) no-repeat center bottom;}
 .main .width_1000 .count .firstcount .text p{font-size:14px; color:#fff; font-weight:bold; padding-top:16px;}
 .main .width_1000 .count .firstcount .text p span{font-size:12px; color:#fff;}
 
 .main .width_1000 .count .middlecount{width:380px; height:156px; float:left; text-align:center;}
-.main .width_1000 .count .middlecount h2{font-family:"Î¢ÈíÑÅºÚ"; font-size:24px; color:#fff; font-weight:normal; height:52px; line-height:52px; background:url(images/line1.png) no-repeat center bottom; padding-top:24px;}
+.main .width_1000 .count .middlecount h2{font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½"; font-size:24px; color:#fff; font-weight:normal; height:52px; line-height:52px; background:url(images/line1.png) no-repeat center bottom; padding-top:24px;}
 .main .width_1000 .count .middlecount .lottery{padding-top:14px;}
 .main .width_1000 .count .middlecount .lottery i{display:block; width:25px; height:25px; background:url(images/pk10-nums.gif) no-repeat; padding-right:5px; float:left;}
 .main .width_1000 .count .middlecount .lottery .lot-no1{background-position:0 0;}
@@ -48,12 +49,12 @@ table { border-collapse: collapse;}
 
 
 .main .width_1000 .count .lastcount{width:260px; height:117px; float:left; padding-top:48px;}
-.main .width_1000 .count .lastcount h2{font-family:"Î¢ÈíÑÅºÚ"; font-size:18px; color:#fff; font-weight:normal; height:36px; background:url(images/line3.png) no-repeat center bottom; padding-top:16px; text-align:center;}
+.main .width_1000 .count .lastcount h2{font-family:"å¾®è½¯é›…é»‘"; font-size:18px; color:#fff; font-weight:normal; height:36px; background:url(images/line3.png) no-repeat center bottom; padding-top:16px; text-align:center;}
 .main .width_1000 .count .lastcount #bottom #countdown{width:180px; height:46px; line-height:20px; margin:0 auto; text-align:center; margin-top:5px;}
 .main .width_1000 .count .lastcount #bottom #countdown span{font-size:12px; color:#fff;font-weight:bold;}
-.main .width_1000 .count .lastcount #bottom #countdown .timeBox{display:inline-block; width:75px; font-family:"Î¢ÈíÑÅºÚ"; font-size:18px; color:#fff;}
-.main .width_1000 .count .lastcount #bottom #countdown .timeBox .minutes{display:inline-block; width:46px; height:46px; background:url(images/square_03.png) no-repeat center center; font-family:"Î¢ÈíÑÅºÚ"; font-size:30px; color:#c12445; margin-right:3px;}
-.main .width_1000 .count .lastcount #bottom #countdown .timeBox .seconds{display:inline-block; width:46px; height:46px; background:url(images/square_03.png) no-repeat center center; font-family:"Î¢ÈíÑÅºÚ"; font-size:30px; color:#c12445; margin-right:3px;}
+.main .width_1000 .count .lastcount #bottom #countdown .timeBox{display:inline-block; width:75px; font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½"; font-size:18px; color:#fff;}
+.main .width_1000 .count .lastcount #bottom #countdown .timeBox .minutes{display:inline-block; width:46px; height:46px; background:url(images/square_03.png) no-repeat center center; font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½"; font-size:30px; color:#c12445; margin-right:3px;}
+.main .width_1000 .count .lastcount #bottom #countdown .timeBox .seconds{display:inline-block; width:46px; height:46px; background:url(images/square_03.png) no-repeat center center; font-family:"Î¢ï¿½ï¿½ï¿½Åºï¿½"; font-size:30px; color:#c12445; margin-right:3px;}
 
 .middlecount .lot-nums2 {
     border:none;
@@ -89,7 +90,7 @@ p.green {
   margin-left:-8px;
 }
 
-/*À®°ÈÍ¼±ê£¨µ¹¼ÆÊ±¿ª½±£©*/
+/*ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ê£¨ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .logo1 {
     background:url(images/sound.png) no-repeat;
     width:30px;
@@ -112,4 +113,4 @@ p.green {
     background:#f6f6f6;
 }
 .jq_con p{text-indent:2em;line-height:30px;}
-#cqsscdt{color:#FFFFFF}
+#cqsscdt{color:#000}

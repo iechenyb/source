@@ -58,8 +58,9 @@
 <script language="javascript" type="text/javascript">
 	function plancont()
 	{
-		$("#plandt").css("display","none");	
-		var htmlobj=$.ajax({url:"gw_getplandata.html?r=" + Math.random().toString(),async:false});
+		$("#plandt").css("display","none");
+		var url = "data/plan.txt?r="+ Math.random().toString();
+		var htmlobj=$.ajax({url:url,async:false});
 		if(htmlobj.responseText!="0")
 		{
 			$("#plandt").css("display","");
